@@ -12,7 +12,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #faf;
+                background-color: #E6E6F5;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -62,8 +62,6 @@
                 margin-bottom: 30px;
             }
         </style>
-      
-@stop
     </head>
     <body>
         <div class="flex-center position-ref full-height">
