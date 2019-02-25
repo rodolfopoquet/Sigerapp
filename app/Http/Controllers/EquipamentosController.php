@@ -38,11 +38,11 @@ class EquipamentosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'eqdescricao'          => 'required|max:30',
-            'marca'                => 'required|:max:30',
-            'modelo'               => 'required|:max:30',
+            'eqdescricao'          => 'required|max:60|unique:equipamentos',
+            'marca'                => 'required|:max:60',
+            'modelo'               => 'required|:max:60',
             'status'               => 'required',
-            'codidentificacao'     => 'required|unique:equipamentos|max:30',
+            'codidentificacao'     => 'required|max:60',
             'dt_aquisicao'         => 'required|date',
          
                  
@@ -85,7 +85,7 @@ class EquipamentosController extends Controller
     {
         $equipamentos = Equipamentos::find($id);
 
-        return view('equipamentos.edit', compact('equipamentos', 'campus'));
+        return view('equipamentos.edit', compact('equipamentos'));
     }
     
 
@@ -99,11 +99,11 @@ class EquipamentosController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'eqdescricao'           => 'required|max:30',
-            'marca'                 => 'required|max:30',
-            'modelo'                => 'required|max:30',
+            'eqdescricao'           => 'required|max:60|unique',
+            'marca'                 => 'required|max:60',
+            'modelo'                => 'required|max:60',
             'status'                => 'required',
-            'codidentificacao'      => 'required|max:30',
+            'codidentificacao'      => 'required|max:60',
             'dt_aquisicao'          => 'required|date',
          
                  

@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' =>  '<img src="s.png" align="center" width="45" height="45"><b>SIG</b>ER',
+    'logo' =>  '<img src="/s.png" align="center" width="45" height="45"><b>SIG</b>ER',
 
-    'logo_mini' => ' <img src="s.png" align="center" width="45" height="45"><b>SIG</b>ER',
+    'logo_mini' => ' <img src="/s.png" align="center" width="45" height="45"><b>SIG</b>ER',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue',
+    'skin' => 'purple-light',
 
     /*
     |--------------------------------------------------------------------------
@@ -129,7 +129,7 @@ return [
         ],
         [
             'text' => 'Change Password',
-            'url'  => 'admin/settings',
+            'url'  => 'user/password',
             'icon' => 'lock',
         ],
         [

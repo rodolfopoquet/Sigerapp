@@ -33,23 +33,23 @@
           <div class="form-group">
               @csrf
               <label for="eqdescricao">Descrição:</label>
-              <input type="text" class="form-control" name="eqdescricao"/>
+              <input type="text" id="eqdescricao" class="form-control" name="eqdescricao" maxlength="60" />
           </div>
 	  <div class="form-group">
  		<label for="marca">Marca do equipamento:</label>
-        	<input type="text" class="form-control" name="marca"/>
+        	<input type="text"  id="marca "class="form-control" name="marca" maxlength="60" />
 	  </div>
 
      <div class="form-group">
  		<label for="modelo">Modelo do equipamento:</label>
-        	<input type="text" class="form-control" name="modelo"/>
+        	<input type="text" id="modelo" class="form-control" name="modelo" maxlength="60" />
 	  </div>
 
      
 
 	 <div class="form-group">
  		<label for="codidentificacao">Número de série do equipamento:</label>
-        	<input type="text" class="form-control" name="codidentificacao"/>
+        	<input type="text"  id="codidentificacao" class="form-control" name="codidentificacao" maxlength="60" />
 	  </div>
 		 <div class="form-group">
 			<label for="dt_aquisicao">Data de aquisição do equipamento:</label>
@@ -62,7 +62,7 @@
           
           <div class="form-group">
  	       
-        	<input type="hidden" class="form-control" name="status" value="Disponível"/>
+        	<input type="hidden"  id="status" class="form-control" name="status" value="Disponível"/>
 	    </div>
           <button type="submit" class="btn btn-primary">Incluir</button>
           <a href="{{ route('equipamentos.index')}}" class="btn btn-primary">Voltar</a>

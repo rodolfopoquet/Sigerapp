@@ -15,11 +15,11 @@ class Equipamentos extends Migration
     {
         Schema::create('equipamentos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('eqdescricao');
+            $table->string('eqdescricao')->unique();
             $table->string('marca');
             $table->string('modelo');
             $table->string('status');
-            $table->string('codidentificacao');
+            $table->string('codidentificacao')->unique();
             $table->date('dt_aquisicao');
             $table->timestamps();
         });
