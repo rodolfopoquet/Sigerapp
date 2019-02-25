@@ -99,7 +99,7 @@ class EquipamentosController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'eqdescricao'           => 'required|max:60|unique',
+            'eqdescricao'           => 'required|max:60',
             'marca'                 => 'required|max:60',
             'modelo'                => 'required|max:60',
             'status'                => 'required',

@@ -30,12 +30,12 @@ return [
     |
     */
 
-    'logo' =>  '<img src="/s.png" align="center" width="45" height="45"><b>SIG</b>ER',
+    'logo' =>  '<img src="/s.png" align="center" width="36" height="36"><b>SIG</b>ER',
 
-    'logo_mini' => ' <img src="/s.png" align="center" width="45" height="45"><b>SIG</b>ER',
+    'logo_mini' => ' <img src="/s.png" align="center" width="36" height="36"><b>SIG</b>ER',
 
     /*
-    |--------------------------------------------------------------------------
+  /  |--------------------------------------------------------------------------
     | Skin Color
     |--------------------------------------------------------------------------
     |
@@ -117,6 +117,13 @@ return [
         [
             'text'        => 'Equipamentos',
             'url'         => '/equipamentos',
+            'icon'        => 'file',
+            'label'       => '',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Reservas',
+            'url'         => '/reservas',
             'icon'        => 'file',
             'label'       => '',
             'label_color' => 'success',
