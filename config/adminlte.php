@@ -128,6 +128,13 @@ return [
             'label'       => '',
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Devolucao',
+            'url'         => '/devolucao',
+            'icon'        => 'file',
+            'label'       => '',
+            'label_color' => 'success',
+        ],
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',

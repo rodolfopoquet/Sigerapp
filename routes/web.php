@@ -21,5 +21,7 @@ Route::resource('/reservas', 'ReservasController');
 Route::get('/home', 'HomeController@index');
 Route::get('user/password', 'UserController@password');
 Route::post('user/updatepassword', 'UserController@updatePassword');
+Route::resource('/devolucao', 'DevolucaoController');
+
 
 });
