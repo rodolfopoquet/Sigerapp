@@ -69,6 +69,7 @@ class ReservasController extends Controller
                    $equipamento->status = 'Indisponivel';
                    $equipamento->save();                   
                }
+               
 
                  
                
@@ -140,6 +141,17 @@ class ReservasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reserva = Reservas::find($id);
+
+        if($reserva){
+            $equipamento = Equipamentos::find($reserva->fkequipamentos);
+                
+            $equipamento->status = 'Disponivel';
+            $equipamento->save(); 
+
+        }
+        $reserva->delete();
+   
+        return redirect('/reservas')->with('success', 'Reserva cancelada com sucesso');
     }
 }
