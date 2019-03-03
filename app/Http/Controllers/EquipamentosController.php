@@ -42,7 +42,7 @@ class EquipamentosController extends Controller
             'marca'                => 'required|:max:60',
             'modelo'               => 'required|:max:60',
             'status'               => 'required',
-            'codidentificacao'     => 'required|max:60',
+            'codidentificacao'     => 'required|max:60|unique:equipamentos',
             'dt_aquisicao'         => 'required|date',
          
                  

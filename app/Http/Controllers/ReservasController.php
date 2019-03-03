@@ -52,7 +52,7 @@ class ReservasController extends Controller
              );
                $reservas = new Reservas([
                  'fkequipamentos'           => $request->get('fkequipamentos'),
-                 'user_id'                  =>  auth()->user()->id,
+                 'user_id'                  => auth()->user()->id,
                  'dtagendamento'            => $request->get('dtagendamento'),
                  'horario'                  => $request->get('horario'),
                  

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\EquipamentosController;
 use App\Models\Reservas;
 use App\Models\Equipamentos;
 use App\Models\Devolucao;
@@ -46,7 +47,8 @@ class DevolucaoController extends Controller
                                 'fkreservas'           => 'required',         
                                 'obs'                  => 'required',
                                 'datadev'              => 'required',
-	                            'horadev'		       => 'required',
+                                'horadev'		       => 'required',
+                                
             
                  
                             ]
@@ -58,9 +60,12 @@ class DevolucaoController extends Controller
                  'obs'                  => $request->get('obs'),
                  'datadev'              => $request->get('datadev'),
                  'horadev'              => $request->get('horadev'),
+                 'user_id'              =>auth()->user()->id,
                 
                 
                ]);
+              
+            
                $devolucao->save();
                return redirect('/devolucao')->with('success', 'Equipamento devolvido com sucesso!');
     }
