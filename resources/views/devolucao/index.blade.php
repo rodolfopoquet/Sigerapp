@@ -27,8 +27,12 @@
         <tr>
           
           <td><b>Recebido por:</b></td>
+          <td><b>Reservado por:</b></td>
+          <td><b>Hora da reserva:</b></td>
           <td><b>Hora da devolução:</b></td>
+          <td><b>Data da reserva:<b></td>
           <td><b>Data da devolução:</b></td>
+          <td><b>Equipamento:</b></td>
           <td><b>Observações:</b>    
           
          
@@ -38,15 +42,20 @@
     </thead>
     <tbody>
 
-        @foreach($devolucao as $devolucao)
+        @foreach($devolucao as $devolucoes)
         <tr>
+      <td>{{$devolucoes->user->name}}</td>
+      <td>{{$devolucoes->reservas->user->name}}</td>  
+      <td>{{$devolucoes->reservas->horario}}</td> 
+      <td>{{$devolucoes->horadev}}     
+      <td>{{$devolucoes->reservas->dtagendamento}}</td>  
+      <td>{{$devolucoes->datadev}}</td>
+      <td>{{$devolucoes->reservas->equipamentos->eqdescricao}}          
+	    <td>{{$devolucoes->obs}}
       
-            
-                  
-	    <td>{{$devolucao->user->name}}</td>
-            <td>{{$devolucao->horadev}}</td>
-            <td>{{$devolucao->datadev}}</td>
-            <td>{{$devolucao->obs}}</td>
+      <td></td>      
+      <td></td>            
+	          
             
 		
 

@@ -54,7 +54,7 @@
                 <form action="{{ route('equipamentos.destroy', $equipamentos->id)}}" method="post">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Excluir</button>
+                  <button class="btn btn-danger" onclick="return confirm('Tem certeza que deseja cancelar a reserva?')" type="submit">Excluir</button>
                 </form>
             </td>
         </tr>

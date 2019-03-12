@@ -58,7 +58,7 @@ class ReservasController extends Controller
                  
                ]);
 
-               if($reservas){
+               if($reservas->equipamentos->status=='Disponível'){
                    //bloquear o item e atualizar o seu 'status'
                    /*
                    fazer o select do item pela chave*/
@@ -141,16 +141,18 @@ class ReservasController extends Controller
      */
     public function destroy($id)
     {
-        $reserva = Reservas::find($id);
+        $reservas = Reservas::find($id);
 
-        if($reserva){
-            $equipamento = Equipamentos::find($reserva->fkequipamentos);
+        if($reservas->equipamentos->status=='Indisponivel'){
+
+            //Fazer uma pergunta de confirmação de cancelamento
+            $equipamento = Equipamentos::find($reservas->fkequipamentos);
                 
             $equipamento->status = 'Disponivel';
             $equipamento->save(); 
 
         }
-        $reserva->delete();
+        $reservas->delete();
    
         return redirect('/reservas')->with('success', 'Reserva cancelada com sucesso');
     }
