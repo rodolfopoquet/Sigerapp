@@ -62,7 +62,7 @@
           
           <div class="form-group">
  	       
-        	<input type="hidden"  id="status" class="form-control" name="status" value="Disponível"/>
+        	<input type="hidden"  id="status" class="form-control" name="status" value="Disponivel"/>
 	    </div>
           <button type="submit" class="btn btn-primary">Incluir</button>
           <a href="{{ route('equipamentos.index')}}" class="btn btn-primary">Voltar</a>

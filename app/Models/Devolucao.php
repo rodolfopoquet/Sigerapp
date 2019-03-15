@@ -24,6 +24,8 @@ class Devolucao extends Model
         return $this->hasOne('App\Models\Reservas', 'id', 'fkreservas');
     }
 
+    
+
     public function user(){
         return $this->BelongsTo(User::class);
     }

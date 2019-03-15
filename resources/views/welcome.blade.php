@@ -82,7 +82,7 @@
             <div class="content">
                 <div class="title m-b-md">
                 <img src="s.png" align="center" width="205" height="205">
-                        <center>SIGER</center>
+                        <center><b>SIGER</center>
                 </div>
 
                 

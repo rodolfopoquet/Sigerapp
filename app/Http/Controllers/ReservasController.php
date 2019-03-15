@@ -58,7 +58,7 @@ class ReservasController extends Controller
                  
                ]);
 
-               if($reservas->equipamentos->status=='Disponível'){
+               if($reservas->equipamentos->status=='Disponivel'){
                    //bloquear o item e atualizar o seu 'status'
                    /*
                    fazer o select do item pela chave*/

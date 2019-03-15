@@ -19,7 +19,7 @@
       {{ session()->get('success') }}  
     </div><br />
   @endif
-  <table class="table table-striped">
+  <table class="table table-striped" >
   <a href="{{ route('equipamentos.create')}}" class="btn btn-primary">Novo equipamento</a><br><br>
     <thead>
         <tr>

@@ -65,9 +65,18 @@ class DevolucaoController extends Controller
                 
                ]);
               
-            
-               $devolucao->save();
-               return redirect('/devolucao')->with('success', 'Equipamento devolvido com sucesso!');
+               $equipamento = Equipamentos::find($devolucao->reservas->fkequipamentos);
+                
+               $equipamento->status = 'Disponivel';
+               $equipamento->save(); 
+               
+              /* $reservas=Reservas::find($devolucao->fkreservas);
+               $reservas->delete();*/
+               
+              
+
+                $devolucao->save();
+                return redirect('/devolucao')->with('success', 'Equipamento devolvido com sucesso!');
     }
 
     /**
