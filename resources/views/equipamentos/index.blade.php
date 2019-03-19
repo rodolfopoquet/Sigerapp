@@ -24,7 +24,7 @@
     <thead>
         <tr>
           
-          <td><b>Descrição:</b></td>
+          <td><b>Tipo de Equipamento:</b></td>
           <td><b>Marca:</b></td>
           <td><b>Modelo:</b></td>         
           <td><b>Numero de série:</b></td>    
