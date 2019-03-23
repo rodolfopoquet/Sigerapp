@@ -15,7 +15,7 @@ class Reservas extends Migration
     {
         Schema::create('reservas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer ('fkequipamentos')->unsigned()->unique();
+            $table->integer ('fkequipamentos')->unsigned();
             $table->foreign('fkequipamentos')->references('id')->on('equipamentos');
             
             $table->integer('user_id')->unsigned();
