@@ -43,38 +43,32 @@ class ReservasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'fkequipamentos'          => 'required|unique:reservas|max:30',
+            'fkequipamentos'          => 'required|max:30',
             'dtagendamento'           => 'required|date',
             'horario'                 => 'required',
-          
-             ]
-     
-             );
-               $reservas = new Reservas([
-                 'fkequipamentos'           => $request->get('fkequipamentos'),
-                 'user_id'                  => auth()->user()->id,
-                 'dtagendamento'            => $request->get('dtagendamento'),
-                 'horario'                  => $request->get('horario'),
-                 
-               ]);
+         ]);
 
-               if($reservas->equipamentos->status=='Disponivel'){
-                   //bloquear o item e atualizar o seu 'status'
-                   /*
-                   fazer o select do item pela chave*/
+        $equipamento = Equipamentos::find($request->get('fkequipamentos'));
 
-                   
-                   $equipamento = Equipamentos::find($request->get('fkequipamentos'));
-                
-                   $equipamento->status = 'Indisponivel';
-                   $equipamento->save();                   
-               }
-               
+        if($equipamento->status=='Indisponivel'){
+            return redirect('/reservas')->with('error', 'Reserva já realizada com sucesso');
+        }
 
-                 
-               
-               $reservas->save();
-               return redirect('/reservas')->with('success', 'Reserva  realizada com sucesso');
+        $reservas = new Reservas([
+            'fkequipamentos'           => $request->get('fkequipamentos'),
+            'user_id'                  => auth()->user()->id,
+            'dtagendamento'            => $request->get('dtagendamento'),
+            'horario'                  => $request->get('horario'),
+        ]);
+        //bloquear o item e atualizar o seu 'status'
+        /*
+        fazer o select do item pela chave*/
+
+        $equipamento->status = 'Indisponivel';
+        $equipamento->save();
+
+        $reservas->save();
+        return redirect('/reservas')->with('success', 'Reserva  realizada com sucesso');
     }
 
     /**
