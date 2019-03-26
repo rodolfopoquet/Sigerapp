@@ -47,7 +47,6 @@ class ReservasController extends Controller
             'fkequipamentos'          => 'required|max:30',
             'dtagendamento'           => 'required|date',
             'horario'                 => 'required',
-<<<<<<< Updated upstream
          ]);
 
         $equipamento = Equipamentos::find($request->get('fkequipamentos'));
@@ -71,37 +70,6 @@ class ReservasController extends Controller
 
         $reservas->save();
         return redirect('/reservas')->with('success', 'Reserva  realizada com sucesso');
-=======
-          
-             ]
-
-     
-             );
-            
-               $reservas = new Reservas([
-                 'fkequipamentos'           => $request->get('fkequipamentos'),
-                 'user_id'                  => auth()->user()->id,
-                 'dtagendamento'            => $request->get('dtagendamento'),
-                 'horario'                  => $request->get('horario'),
-                 
-               ]);
-              
-              
-                 
-
-                   if($reservas->equipamentos->status=='Disponível'){
-                  
-                   $equipamentos = Equipamentos::find($request->get('fkequipamentos'));
-                   $equipamentos->status = 'Indisponível';
-                   $equipamentos->save();    
-                   
-                             
-               }
-               $reservas->save(); 
-                   return redirect('/reservas')->with('success', 'Reserva  realizada com sucesso'); 
-       
-              
->>>>>>> Stashed changes
     }
 
     /**
