@@ -42,10 +42,12 @@ class ReservasController extends Controller
      */
     public function store(Request $request)
     {
+       
         $request->validate([
             'fkequipamentos'          => 'required|max:30',
             'dtagendamento'           => 'required|date',
             'horario'                 => 'required',
+<<<<<<< Updated upstream
          ]);
 
         $equipamento = Equipamentos::find($request->get('fkequipamentos'));
@@ -69,6 +71,37 @@ class ReservasController extends Controller
 
         $reservas->save();
         return redirect('/reservas')->with('success', 'Reserva  realizada com sucesso');
+=======
+          
+             ]
+
+     
+             );
+            
+               $reservas = new Reservas([
+                 'fkequipamentos'           => $request->get('fkequipamentos'),
+                 'user_id'                  => auth()->user()->id,
+                 'dtagendamento'            => $request->get('dtagendamento'),
+                 'horario'                  => $request->get('horario'),
+                 
+               ]);
+              
+              
+                 
+
+                   if($reservas->equipamentos->status=='Disponível'){
+                  
+                   $equipamentos = Equipamentos::find($request->get('fkequipamentos'));
+                   $equipamentos->status = 'Indisponível';
+                   $equipamentos->save();    
+                   
+                             
+               }
+               $reservas->save(); 
+                   return redirect('/reservas')->with('success', 'Reserva  realizada com sucesso'); 
+       
+              
+>>>>>>> Stashed changes
     }
 
     /**
@@ -142,7 +175,7 @@ class ReservasController extends Controller
             //Fazer uma pergunta de confirmação de cancelamento
             $equipamento = Equipamentos::find($reservas->fkequipamentos);
                 
-            $equipamento->status = 'Disponivel';
+            $equipamento->status = 'Disponível';
             $equipamento->save(); 
 
         }
