@@ -108,7 +108,7 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'MENU PRINCIPAL',
         [
             'text' => 'Blog',
             'url'  => 'admin/blog',
@@ -135,18 +135,19 @@ return [
             'label'       => '',
             'label_color' => 'success',
         ],
-        'ACCOUNT SETTINGS',
-        [
+        'INFORMAÇÕES DA CONTA',
+       
+       /* [
             'text' => 'Profile',
             'url'  => 'admin/settings',
             'icon' => 'user',
-        ],
+        ],*/
         [
-            'text' => 'Change Password',
+            'text' => 'Alterar senha',
             'url'  => 'user/password',
             'icon' => 'lock',
         ],
-        [
+       /* [
             'text'    => 'Multilevel',
             'icon'    => 'share',
             'submenu' => [
@@ -184,7 +185,8 @@ return [
                 ],
             ],
         ],
-        'LABELS',
+        ],
+       'LABELS',
         [
             'text'       => 'Important',
             'icon_color' => 'red',
@@ -196,8 +198,9 @@ return [
         [
             'text'       => 'Information',
             'icon_color' => 'aqua',
-        ],
-    ],
+        ],*/
+    ] 
+    ,
 
     /*
     |--------------------------------------------------------------------------
