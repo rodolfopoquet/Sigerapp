@@ -33,7 +33,7 @@ class ReservasController extends Controller
         return view('reservas.create')->withEquipamentos($equipamentos);
     }
     
-
+     
     /**
      * Store a newly created resource in storage.
      *
@@ -51,8 +51,9 @@ class ReservasController extends Controller
 
         $equipamento = Equipamentos::find($request->get('fkequipamentos'));
 
-        if($equipamento->status=='Indisponivel'){
-            return redirect('/reservas')->with('error', 'Reserva já realizada com sucesso');
+        if($equipamento->status=='Indisponível'){
+          return redirect('/reservas')->with('error', 'Equipamento já reservado!');
+          
         }
 
         $reservas = new Reservas([
@@ -65,7 +66,7 @@ class ReservasController extends Controller
         /*
         fazer o select do item pela chave*/
 
-        $equipamento->status = 'Indisponivel';
+        $equipamento->status = 'Indisponível';
         $equipamento->save();
 
         $reservas->save();
@@ -138,7 +139,7 @@ class ReservasController extends Controller
     {
         $reservas = Reservas::find($id);
 
-        if($reservas->equipamentos->status=='Indisponivel'){
+        if($reservas->equipamentos->status=='Indisponível'){
 
             //Fazer uma pergunta de confirmação de cancelamento
             $equipamento = Equipamentos::find($reservas->fkequipamentos);
