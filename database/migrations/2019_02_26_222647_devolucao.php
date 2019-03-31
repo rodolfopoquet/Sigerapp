@@ -14,11 +14,12 @@ class Devolucao extends Migration
     public function up()
     {
         Schema::create('devolucao', function (Blueprint $table) {
+            $table->softDeletes();
             $table->increments('id');
             $table->integer('fkreservas')->unsigned();
-            $table->foreign('fkreservas')->references('id')->on('reservas');
+            $table->foreign('fkreservas')->references('id')->on('reservas')->onDelete('cascade');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->date('datadev');
             $table->string('horadev');
             $table->string('obs');

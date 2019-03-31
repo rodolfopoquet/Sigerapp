@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class Reservas extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
         'fkequipamentos',
         'user_id',
@@ -17,6 +19,7 @@ class Reservas extends Model
 
     ];
     protected $table ='reservas';
+    protected $dates = ['deleted_at'];
 
     public function equipamentos()
     {

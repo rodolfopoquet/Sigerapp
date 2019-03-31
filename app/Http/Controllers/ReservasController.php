@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Reservas;
 use App\Models\Equipamentos;
 
+
 class ReservasController extends Controller
 {
     /**
@@ -149,7 +150,10 @@ class ReservasController extends Controller
 
         }
         $reservas->delete();
+
+        
    
         return redirect('/reservas')->with('success', 'Reserva cancelada com sucesso');
     }
+   
 }

@@ -38,7 +38,7 @@ class EquipamentosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'eqdescricao'          => 'required|max:60|unique:equipamentos',
+            'eqdescricao'          => 'required|max:60',
             'marca'                => 'required|:max:60',
             'modelo'               => 'required|:max:60',
             'status'               => 'required',
@@ -137,7 +137,10 @@ class EquipamentosController extends Controller
         $equipamentos ->delete();
 
         return redirect('/equipamentos')->with('success', 'Equipamento excluido com sucesso');
+    
+       
     }
+    
 
     
    

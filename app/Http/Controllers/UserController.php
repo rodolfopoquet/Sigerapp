@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -99,10 +99,10 @@ class UserController extends Controller
         ];
         
         $messages = [
-            'mypassword.required' => 'Campo obrigatório',
-            'password.required' => 'Campo obrigatório',
-            'password.confirmed' => 'Senhas não coincidem',
-            'password.min' => 'Minimo permitido são 6 dígitos',
+            'mypassword.required' =>'Campo obrigatório',
+            'password.required' =>'Campo obrigatório',
+            'password.confirmed'=> 'Senhas não coincidem',
+            'password.min' =>'Minimo permitido são 6 dígitos',
             'password.max' => 'Maximo permitido é de 18 dígitos',
         ];
         

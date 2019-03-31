@@ -44,39 +44,34 @@ class DevolucaoController extends Controller
     public function store(Request $request)
     {
         $request->validate( [
-                                'fkreservas'           => 'required',         
-                                'obs'                  => 'required',
-                                'datadev'              => 'required',
-                                'horadev'		       => 'required',
-                                
-            
-                 
-                            ]
-        
-             
-             );
-               $devolucao = new Devolucao([
-                 'fkreservas'           => $request->get('fkreservas'),
-                 'obs'                  => $request->get('obs'),
-                 'datadev'              => $request->get('datadev'),
-                 'horadev'              => $request->get('horadev'),
-                 'user_id'              =>auth()->user()->id,
-                
-                
-               ]);
-              
-               $equipamento = Equipamentos::find($devolucao->reservas->fkequipamentos);
-                
-               $equipamento->status = 'Disponível';
-               $equipamento->save(); 
-               
-              /* $reservas=Reservas::find($devolucao->fkreservas);
-               $reservas->delete();*/
-               
-              
+            'fkreservas'           => 'required',         
+            'obs'                  => 'required',
+            'datadev'              => 'required',
+            'horadev'		       => 'required',
+        ]  );                  
+        $devolucao = new Devolucao([
+            'fkreservas'           => $request->get('fkreservas'),
+            'obs'                  => $request->get('obs'),
+            'datadev'              => $request->get('datadev'),
+            'horadev'              => $request->get('horadev'),
+            'user_id'              =>auth()->user()->id,
+           
+           
+          ]);
+         
+          $equipamento = Equipamentos::find($devolucao->reservas->fkequipamentos);
+           
+          $equipamento->status = 'Disponível';
+          $equipamento->save(); 
+          
+         /* $reservas=Reservas::find($devolucao->fkreservas);
+          $reservas->delete();*/
+          
+         
 
-                $devolucao->save();
-                return redirect('/devolucao')->with('success', 'Equipamento devolvido com sucesso!');
+           $devolucao->save();
+           return redirect('/devolucao')->with('success', 'Equipamento devolvido com sucesso!');
+       
     }
 
     /**
@@ -123,4 +118,7 @@ class DevolucaoController extends Controller
     {
         //
     }
+
+    
 }
+

@@ -36,8 +36,11 @@
         <div class="form-group">
              
              <label for="fkreservas">Equipamento reservado:</label>
-
+             
+            
+            
              {!!
+             
             Form::select(
                 'fkreservas',
                  $reservas->pluck('equipamentos.eqdescricao','id'),

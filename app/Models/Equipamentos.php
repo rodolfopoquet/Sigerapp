@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Equipamentos extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
         'eqdescricao',
         'marca',
@@ -16,6 +18,7 @@ class Equipamentos extends Model
        
     ];
     protected $table ='equipamentos';
+    protected $dates = ['deleted_at'];
 
 
   
