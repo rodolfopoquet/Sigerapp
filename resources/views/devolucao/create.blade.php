@@ -43,7 +43,7 @@
              
             Form::select(
                 'fkreservas',
-                 $reservas->pluck('equipamentos.eqdescricao','id'),
+                 $reservas->pluck('eqdescricao','id'),
                 old('fkreservas') ?? request()->get('fkreservas'),
                 ['class' => 'form-control']
             )
