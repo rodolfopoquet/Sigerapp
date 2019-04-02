@@ -58,7 +58,10 @@
                 'fkequipamentos',
                 $equipamentos->pluck('eqdescricao','id'),
                 old('fkequipamentos') ?? request()->get('fkequipamentos'),
-                ['class' => 'form-control']
+                [
+                'class' => 'form-control',
+                'required' => 'required'
+                ]
             )
         !!}
 

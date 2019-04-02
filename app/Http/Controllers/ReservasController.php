@@ -7,6 +7,10 @@ use App\Models\Reservas;
 use App\Models\Equipamentos;
 
 
+/**
+ * Class ReservasController
+ * @package App\Http\Controllers
+ */
 class ReservasController extends Controller
 {
     /**
@@ -28,7 +32,7 @@ class ReservasController extends Controller
      */
     public function create()
     {
-        $equipamentos= Equipamentos::all();
+        $equipamentos= Equipamentos::disponivel()->get();
         $reservas =  Reservas::all();
 
         return view('reservas.create')->withEquipamentos($equipamentos);

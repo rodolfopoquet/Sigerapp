@@ -28,9 +28,5 @@ class Devolucao extends Model
     public function user(){
         return $this->BelongsTo(User::class);
     }
-
-    public function scopeStatus($query)
-    {   $query=Equipamentos::all();
-        return $query->where('status', 'like', 'Indisponível');
-    }
+    
 }
