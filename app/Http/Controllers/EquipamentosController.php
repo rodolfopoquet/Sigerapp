@@ -61,7 +61,9 @@ class EquipamentosController extends Controller
                 
                ]);
                $equipamentos->save();
-               return redirect('/equipamentos')->with('success', 'Equipamento incluido com sucesso');
+               return flash()->success('Equipamento incluido com sucesso!');
+               redirect('/equipamentos');
+               //redirect('/equipamentos')->with('success', 'Equipamento incluido com sucesso');
     }
 
     /**

@@ -16,7 +16,11 @@
 <div class="uper">
   @if(session()->get('success'))
     <div class="alert alert-success">
-      {{ session()->get('success') }}  
+    @if(flash()->message)
+    <div class="{{ flash()->class }}">
+        {{ flash()->message }}
+    </div>
+@endif
     </div><br />
   @endif
   <table class="table table-striped" >
