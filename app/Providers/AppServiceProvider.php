@@ -18,6 +18,8 @@ class AppServiceProvider extends ServiceProvider
             'warning' => 'alert-warning',
             'error' => 'alert-error',
         ]);
+
+        \Illuminate\Support\Facades\Schema::defaultStringLength(191);
     }
 
     /**
