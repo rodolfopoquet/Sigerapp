@@ -15,8 +15,10 @@ class EquipamentosController extends Controller
      */
     public function index()
     {
-        $equipamentos = Equipamentos::all();
+        $equipamentos = Equipamentos::orderBy('id', 'DESC')->get();
         return view('equipamentos.index', compact('equipamentos'));
+
+        
     }
 
     /**

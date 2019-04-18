@@ -20,7 +20,7 @@ class ReservasController extends Controller
      */
     public function index()
     {
-        $reservas = Reservas::all();
+        $reservas = Reservas::orderBy('id', 'DESC')->get();
         
         return view('reservas.index', compact('reservas'));
        
