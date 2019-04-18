@@ -54,16 +54,19 @@
 
                </div>
 	      <label for="datadev">Data da devolucao:</label>
-              <input type="date" id="datadev" class="form-control" name="datadev" maxlength="60" />
+        {!!
+				Form::date('datadev', \Carbon\Carbon::now(),['class' => 'form-control']);
+
+              !!}
           </div>
 	      <div class="form-group">
  		<label for="horadev">Hora da devolução:</label>
-        	<input type="time"  id="horadev" class="form-control" name="horadev" />
+        	<input type="time"  id="horadev" class="form-control" name="horadev" autofocus value="{{old('horadev')}}"/>
 	  </div>
 
      <div class="form-group">
  		<label for="obs">Observações:</label>
-        	<input type="textarea" id="obs" class="form-control" name="obs"/>
+        	<textarea  rows="4" cols="50" id="obs" class="form-control" name="obs" autofocus > {{old('obs')}}</textarea>
 	  </div>
 	  <button type="submit" class="btn btn-primary">Incluir</button>
           <a href="{{ route('devolucao.index')}}" class="btn btn-primary">Voltar</a>

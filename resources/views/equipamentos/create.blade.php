@@ -23,35 +23,33 @@
       <div class="alert alert-danger">
       
         <ul>
-        @if(flash()->message)
-    <div class="{{ flash()->class }}">
-        {{ flash()->message }}
-    </div>
-@endif
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
         </ul>
       </div><br />
     @endif
       <form method="post" action="{{ route('equipamentos.store') }}">
           <div class="form-group">
               @csrf
-              <label for="eqdescricao">Descrição:</label>
-              <input type="text" id="eqdescricao" class="form-control" name="eqdescricao" maxlength="60" />
+              <label for="eqdescricao">Tipo de Equipamento:</label>
+              <input type="text" class="form-control" name="eqdescricao" value="{{old('eqdescricao')}}" autofocus />
           </div>
 	  <div class="form-group">
  		<label for="marca">Marca do equipamento:</label>
-        	<input type="text"  id="marca "class="form-control" name="marca" maxlength="60" />
+        	<input type="text" class="form-control" name="marca" autofocus value="{{old('marca')}}"/>
 	  </div>
 
      <div class="form-group">
  		<label for="modelo">Modelo do equipamento:</label>
-        	<input type="text" id="modelo" class="form-control" name="modelo" maxlength="60" />
+        	<input type="text" class="form-control" name="modelo" autofocus value="{{old('modelo')}}"/>
 	  </div>
 
      
 
 	 <div class="form-group">
  		<label for="codidentificacao">Número de série do equipamento:</label>
-        	<input type="text"  id="codidentificacao" class="form-control" name="codidentificacao" maxlength="60" />
+        	<input type="text" class="form-control" name="codidentificacao" autofocus value="{{old('codidentificacao')}}"/>
 	  </div>
 		 <div class="form-group">
 			<label for="dt_aquisicao">Data de aquisição do equipamento:</label>
@@ -59,12 +57,10 @@
 				Form::date('dt_aquisicao', \Carbon\Carbon::now(),['class' => 'form-control']);
 
                         !!}		
-		</div>
-
-          
+	
           <div class="form-group">
  	       
-        	<input type="hidden"  id="status" class="form-control" name="status" value="Disponível"/>
+        	<input type="hidden" class="form-control" name="status" value="Disponível"/>
 	    </div>
           <button type="submit" class="btn btn-primary">Incluir</button>
           <a href="{{ route('equipamentos.index')}}" class="btn btn-primary">Voltar</a>

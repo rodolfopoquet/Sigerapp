@@ -50,7 +50,7 @@
       <td>{{$devolucoes->horadev}}     
       <td>{{$devolucoes->reservas->dtagendamento}}</td>  
       <td>{{$devolucoes->datadev}}</td>
-      <td>{{$devolucoes->reservas->equipamentos->eqdescricao}}          
+      <td>{{$devolucoes->reservas->equipamentos->eqdescricao}} /{{$devolucoes->reservas->equipamentos->marca}}        
 	    <td>{{$devolucoes->obs}}
       
       <td></td>      

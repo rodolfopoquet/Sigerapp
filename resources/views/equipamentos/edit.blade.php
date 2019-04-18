@@ -22,11 +22,9 @@
     @if ($errors->any())
       <div class="alert alert-danger">
         <ul>
-        @if(flash()->message)
-    <div class="{{ flash()->class }}">
-        {{ flash()->message }}
-    </div>
-@endif
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
         </ul>
       </div><br />
     @endif
@@ -35,19 +33,19 @@
         @csrf
         <div class="form-group">
           <label for="eqdescricao">Descrição:</label>
-          <input type="text" class="form-control"  id="eqdescricao" name="eqdescricao" maxlength="60" value={{ $equipamentos->eqdescricao }} />
+          <input type="text" class="form-control" name="eqdescricao" value={{ $equipamentos->eqdescricao }} />
         </div>
         <div class="form-group">
           <label for="marca">Marca do equipamento:</label>
-          <input type="text" class="form-control"  id="marca" name="marca"  maxlength="60" value={{ $equipamentos->marca }} />
+          <input type="text" class="form-control" name="marca" value={{ $equipamentos->marca }} />
         </div>
         <div class="form-group">
           <label for="modelo">Modelo do equipamento:</label>
-          <input type="text" class="form-control"  id="modelo" name="modelo" maxlength="60" value={{ $equipamentos->modelo }} />
+          <input type="text" class="form-control" name="modelo" value={{ $equipamentos->modelo }} />
         </div>
         <div class="form-group">
           <label for="codidentificacao">Número de série do equipamento:</label>
-          <input type="text" class="form-control"  id="codidentificacao" name="codidentificacao" maxlength="60" value={{ $equipamentos->codidentificacao }} />
+          <input type="text" class="form-control" name="codidentificacao" value={{ $equipamentos->codidentificacao }} />
         </div>
          <label for="dt_aquisicao">Data de aquisição do equipamento:</label>
 			{!!
@@ -56,11 +54,13 @@
                         !!}		
 		</div>
 
-         
-        <input type="hidden" class="form-control" id="status" name="status" value="Disponível"/>
+        <div class="form-group">
+        <input type="hidden" class="form-control" name="status" value="Disponível"/>
         </div>
+        <div class='form-group'>
         <button type="submit" class="btn btn-primary">Atualizar</button>
         <a href="{{ route('equipamentos.index')}}" class="btn btn-primary">Voltar</a>
+        </div>
       </form>
   </div>
 </div>

@@ -106,10 +106,10 @@ class UserController extends Controller
             'password.max' => 'Maximo permitido é de 18 dígitos',
         ];
         
-        $validator = Validator::make($request->all(), $rules, $messages);
+       $validator = Validator::make($request->all(), $rules, $messages);
         if ($validator->fails()){
             return redirect('user/password')->withErrors($validator);
-        }
+        } 
         else{
             if (Hash::check($request->mypassword, Auth::user()->password)){
                 $user = new User();

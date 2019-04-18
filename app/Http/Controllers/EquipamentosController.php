@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Campus;
 use App\Models\Equipamentos;
 
 class EquipamentosController extends Controller
@@ -25,7 +26,7 @@ class EquipamentosController extends Controller
      */
     public function create()
     {
-        $equipamentos =  Equipamentos::all();
+        
         return view('equipamentos.create');
     }
 
@@ -38,32 +39,42 @@ class EquipamentosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'eqdescricao'          => 'required|max:60',
-            'marca'                => 'required|:max:60',
-            'modelo'               => 'required|:max:60',
-            'status'               => 'required',
-            'codidentificacao'     => 'required|max:60|unique:equipamentos',
-            'dt_aquisicao'         => 'required|date',
+             'eqdescricao'          => 'required|max:30',
+             'marca'                => 'required|:max:30',
+             'modelo'               => 'required|:max:30',
+             'status'               => 'required',
+             'codidentificacao'     => 'required|unique:equipamentos|max:30',
+             'dt_aquisicao'         => 'required|date',
+            
+        ],[
+            'eqdescricao.required' => 'O Tipo de equipamento deve ser preenchido obrigatóriamente',
+            'marca.required'=>'O campo marca deve ser preenchido obrigatóriamente',
+            'modelo.required'=>'O campo modelo deve ser preenchido obrigatóriamente',
+            'codidentificacao.required'=>'O campo de número de série deve ser preenchido obrigatóriamente',
+            'codidentificacao.unique'=>'O campo número de série é único',
+            'eqdescricao.max'=>'É permitido no máximo 30 digitos',
+            'modelo.max'=>'É permitido no máximo 30 dígitos',
+                   
+            ]
+    
          
+              
+              );
+                $equipamentos = new Equipamentos([
+                  'eqdescricao'        => $request->get('eqdescricao'),
+                  'marca'              => $request->get('marca'),
+                  'modelo'             => $request->get('modelo'),
+                  'status'             => $request->get('status'),
+                  'codidentificacao'   => $request->get('codidentificacao'),
+                  'dt_aquisicao'       => $request->get('dt_aquisicao'),
+                  
                  
-             ]
-        
-             
-             );
-               $equipamentos = new Equipamentos([
-                 'eqdescricao'        => $request->get('eqdescricao'),
-                 'marca'              => $request->get('marca'),
-                 'modelo'             => $request->get('modelo'),
-                 'status'             => $request->get('status'),
-                 'codidentificacao'   => $request->get('codidentificacao'),
-                 'dt_aquisicao'       => $request->get('dt_aquisicao'),
-                
-                
-               ]);
-               $equipamentos->save();
-               return flash()->success('Equipamento incluido com sucesso!');
-               redirect('/equipamentos');
-               //redirect('/equipamentos')->with('success', 'Equipamento incluido com sucesso');
+                ]
+            
+            
+            );
+                $equipamentos->save();
+                return redirect('/equipamentos')->with('success', 'Equipamento incluido com sucesso');
     }
 
     /**
@@ -74,9 +85,8 @@ class EquipamentosController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -85,6 +95,7 @@ class EquipamentosController extends Controller
      */
     public function edit($id)
     {
+     
         $equipamentos = Equipamentos::find($id);
 
         return view('equipamentos.edit', compact('equipamentos'));
@@ -101,15 +112,25 @@ class EquipamentosController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'eqdescricao'           => 'required|max:60',
-            'marca'                 => 'required|max:60',
-            'modelo'                => 'required|max:60',
+            'eqdescricao'           => 'required|max:30',
+            'marca'                 => 'required|max:30',
+            'modelo'                => 'required|max:30',
             'status'                => 'required',
-            'codidentificacao'      => 'required|max:60',
+            'codidentificacao'      => 'required|max:30',
             'dt_aquisicao'          => 'required|date',
-         
+            
                  
-             ]
+        ],
+        [
+            'eqdescricao.required' => 'O Tipo de equipamento deve ser preenchido obrigatóriamente',
+            'marca.required'=>'O campo marca deve ser preenchido obrigatóriamente',
+            'modelo.required'=>'O campo modelo deve ser preenchido obrigatóriamente',
+            'codidentificacao.required'=>'O campo de número de série deve ser preenchido obrigatóriamente',
+            'codidentificacao.unique'=>'O campo número de série é único',
+            'eqdescricao.max'=>'É permitido no máximo 30 digitos',
+            'modelo.max'=>'É permitido no máximo 30 dígitos',
+                   
+        ]
         
              
              );
@@ -124,7 +145,7 @@ class EquipamentosController extends Controller
                 
               
                $equipamentos->save();
-               return redirect('/equipamentos')->with('success', 'Equipamento Atualizado com sucesso');
+               return redirect('/equipamentos')->with('success', 'Equipamento atualizado com sucesso');
     }
 
     /**
@@ -139,10 +160,7 @@ class EquipamentosController extends Controller
         $equipamentos ->delete();
 
         return redirect('/equipamentos')->with('success', 'Equipamento excluido com sucesso');
-    
-       
     }
-    
 
     
    

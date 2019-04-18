@@ -47,7 +47,15 @@ class DevolucaoController extends Controller
             'obs'                  => 'required',
             'datadev'              => 'required',
             'horadev'		       => 'required',
-        ]  );                  
+        ],
+        
+        [
+            'horadev.required'=> 'O campo hora de devolução deve ser preenchido obrigatóriamente',
+            'obs.required'=> 'O campo observações deve ser preenchido obrigatóriamente',
+
+        ]
+      
+    );                  
         $devolucao = new Devolucao([
             'fkreservas'           => $request->get('fkreservas'),
             'obs'                  => $request->get('obs'),

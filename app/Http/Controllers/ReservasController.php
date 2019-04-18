@@ -52,7 +52,15 @@ class ReservasController extends Controller
             'fkequipamentos'          => 'required|max:30',
             'dtagendamento'           => 'required|date',
             'horario'                 => 'required',
-         ]);
+        ],
+        [
+            'horario.required'=>'O campo horário deve ser preenchido obrigatóriamente',
+
+        ]
+    
+    
+    
+    );
 
         $equipamento = Equipamentos::find($request->get('fkequipamentos'));
 
@@ -97,10 +105,7 @@ class ReservasController extends Controller
      */
     public function edit($id)
     {
-        $equipamentos=Equipamentos::all();
-        $reservas = Reservas::find($id);
-
-        return view('reservas.edit', compact('reservas','equipamentos'));
+       
     }
 
     /**
@@ -118,7 +123,11 @@ class ReservasController extends Controller
             'dtagendamento'           => 'required|date',
             'horario'                 => 'required|max:60',
            
-             ]
+        ],
+        [
+            'horario.required'=>'O campo horário deve ser preenchido obrigatóriamente',
+
+        ]
         
              
              );
@@ -146,7 +155,7 @@ class ReservasController extends Controller
 
         if($reservas->equipamentos->status=='Indisponível'){
 
-            //Fazer uma pergunta de confirmação de cancelamento
+            
             $equipamento = Equipamentos::find($reservas->fkequipamentos);
                 
             $equipamento->status = 'Disponível';

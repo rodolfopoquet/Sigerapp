@@ -38,7 +38,7 @@
          
           <div class="form-group">
          <label for="horario">Horário:</label> 
-              <input type="time" id="horario"class="form-control" name="horario" >
+              <input type="time" id="horario"class="form-control" name="horario">
          </div>
           <div class="form-group">
               
