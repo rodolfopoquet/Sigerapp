@@ -129,19 +129,26 @@ return [
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Devolucao',
+            'text'        => 'Devoluções',
             'url'         => '/devolucao',
+            'icon'        => 'file',
+            'label'       => '',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Manutenção',
+            'url'         => '/manutencoes',
             'icon'        => 'file',
             'label'       => '',
             'label_color' => 'success',
         ],
         'INFORMAÇÕES DA CONTA',
        
-       /* [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
+        [
+            'text' => 'Cadastrar Usuários',
+            'url'  => 'auth/new',
             'icon' => 'user',
-        ],*/
+        ],
         [
             'text' => 'Alterar senha',
             'url'  => 'user/password',

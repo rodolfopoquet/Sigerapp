@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 
-@section('title', 'SIGER - Sistema Gerenciador de Reservas')
+@section('title', 'SIGER - Sistema Gerenciador de Reservas de Equipamentos')
 @section('content')
 
 @if (Session::has('message'))
