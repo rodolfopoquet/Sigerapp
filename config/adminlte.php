@@ -146,7 +146,7 @@ return [
        
         [
             'text' => 'Cadastrar Usuários',
-            'url'  => 'auth/new',
+            'url'  => '/novousuario/create',
             'icon' => 'user',
         ],
         [

@@ -18,7 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        
+        return view('novousuario.create');
     }
 
     /**
@@ -39,7 +39,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'email'=> 'required|email|unique:users',
+            'password' => 'required|confirmed|min:6|max:18'
+          ]);
+          $user = new User([
+            'name' => $request->get('name'),
+            'email'=> $request->get('email'),
+            'password' => Hash::make($request->password)
+          ]);
+          $user->save();
+          return redirect('/novousuario/create')->with('success', 'Usuário cadastrado com sucesso');
+        
     }
 
     /**
