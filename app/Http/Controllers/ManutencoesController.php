@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Manutencoes;
+use App\Models\Equipamentos;
 
 class ManutencoesController extends Controller
 {
@@ -25,7 +26,7 @@ class ManutencoesController extends Controller
      */
     public function create()
     {
-        //
+        return view('manutencoes.create');
     }
 
     /**
@@ -36,8 +37,43 @@ class ManutencoesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'descricaoproblema'          => 'required|max:1600',
+            'fkequipamentos'             => 'required',
+            'data'                       => 'required|date',
+                      
+       ],[
+           'descricaoproblema.required' => 'O campo descrição do problema apresentado deve ser preenchido obrigatóriamente',
+                             
+        ]
+   
+        
+             
+             );
+               $manutencoes = new Manutencoes([
+                 'descricaoproblema'  => $request->get('descricaoproblema'),
+                 'data'               => $request->get('data'),
+		         'fkequipamentos'     => $request->get('fkequipamentos'),
+		         'user_id'	          =>auth()->user()->id,
+
+                 
+                 
+                
+               ]
+           
+           
+           );
+           //Para alteração do status no equipamento selecionado!
+           $equipamentos = Equipamentos::find($request->get('fkequipamentos'));
+           $equipamento->status = 'Retirado para manutenção';
+           $equipamento->save();
+
+           $manutencoes->save();
+            return redirect('/manutencoes')->with('success', 'Solicitação de manutenção aberta com sucesso');
+   
     }
+
+    
 
     /**
      * Display the specified resource.

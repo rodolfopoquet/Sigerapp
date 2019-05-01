@@ -13,7 +13,7 @@ class Manutencoes extends Model
         'descricaoproblema',
            'data',
            'fkequipamentos',
-          'fkequipamentos',       
+             
             
       ];
 }
