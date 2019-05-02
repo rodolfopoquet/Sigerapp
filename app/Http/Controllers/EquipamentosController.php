@@ -74,6 +74,7 @@ class EquipamentosController extends Controller
             
             
             );
+               
                 $equipamentos->save();
                 return redirect('/equipamentos')->with('success', 'Equipamento incluido com sucesso');
     }
@@ -144,10 +145,25 @@ class EquipamentosController extends Controller
                 $equipamentos->dt_aquisicao       = $request->get ('dt_aquisicao');
                
                 
-              
+              if($equipamentos->status=='Disponível'){
+                $equipamentos->status='Disponível';
                $equipamentos->save();
                return redirect('/equipamentos')->with('success', 'Equipamento atualizado com sucesso');
-    }
+               }
+
+               if($equipamentos->status=='Indisponível'){
+                $equipamentos->status='Indisponível';
+                $equipamentos->save();
+                return redirect('/equipamentos')->with('success', 'Equipamento atualizado com sucesso');
+               }
+
+               if($equipamentos->status=='Retirado para manutenção'){
+                $equipamentos->status='Retirado para manutenção';
+                $equipamentos->save();
+                return redirect('/equipamentos')->with('success', 'Equipamento atualizado com sucesso');
+               }
+   
+            }
 
     /**
      * Remove the specified resource from storage.

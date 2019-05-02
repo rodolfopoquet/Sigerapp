@@ -66,10 +66,10 @@ class DevolucaoController extends Controller
            
           ]);
          
-          $equipamento = Equipamentos::find($devolucao->reservas->fkequipamentos);
+          $equipamentos = Equipamentos::find($devolucao->reservas->fkequipamentos);
            
-          $equipamento->status = 'Disponível';
-          $equipamento->save(); 
+          $equipamentos->status = 'Disponível';
+          $equipamentos->save(); 
           
          /* $reservas=Reservas::find($devolucao->fkreservas);
           $reservas->delete();*/

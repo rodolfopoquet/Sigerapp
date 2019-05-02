@@ -55,7 +55,7 @@
 		</div>
 
         <div class="form-group">
-        <input type="hidden" class="form-control" name="status" value="Disponível"/>
+        <input type="hidden" class="form-control" name="status" value="{{$equipamentos->status}}">
         </div>
         <div class='form-group'>
         <button type="submit" class="btn btn-primary">Atualizar</button>

@@ -21,8 +21,8 @@ class Devolucao extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->date('datadev');
-            $table->string('horadev');
-            $table->string('obs');
+            $table->time('horadev');
+            $table->text('obs');
             $table->timestamps();
         });
     }
