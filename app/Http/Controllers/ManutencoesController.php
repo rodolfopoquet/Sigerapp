@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Manutencoes;
 use App\Models\Equipamentos;
+use App\Http\EquipamentosController;
 
 class ManutencoesController extends Controller
 {
@@ -26,7 +27,8 @@ class ManutencoesController extends Controller
      */
     public function create()
     {
-        return view('manutencoes.create');
+        $equipamentos= Equipamentos::disponivel()->get();
+        return view('manutencoes.create')->withEquipamentos($equipamentos);
     }
 
     /**
@@ -54,7 +56,7 @@ class ManutencoesController extends Controller
                  'descricaoproblema'  => $request->get('descricaoproblema'),
                  'data'               => $request->get('data'),
 		         'fkequipamentos'     => $request->get('fkequipamentos'),
-		         'user_id'	          =>auth()->user()->id,
+		         'user_id'            => auth()->user()->id,
 
                  
                  
@@ -65,8 +67,8 @@ class ManutencoesController extends Controller
            );
            //Para alteração do status no equipamento selecionado!
            $equipamentos = Equipamentos::find($request->get('fkequipamentos'));
-           $equipamento->status = 'Retirado para manutenção';
-           $equipamento->save();
+           $equipamentos->status = 'Retirado para manutenção';
+           $equipamentos->save();
 
            $manutencoes->save();
             return redirect('/manutencoes')->with('success', 'Solicitação de manutenção aberta com sucesso');

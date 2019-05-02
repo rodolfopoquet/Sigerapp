@@ -15,7 +15,7 @@ class CreateManutencoesTable extends Migration
     {
         Schema::create('manutencoes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descricaoproblema');
+            $table->text('descricaoproblema');
             $table->date('data');
             $table->integer('fkequipamentos')->unsigned();
             $table->foreign('fkequipamentos')->references('id')->on('equipamentos');        

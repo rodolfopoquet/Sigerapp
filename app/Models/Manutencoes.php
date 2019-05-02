@@ -13,7 +13,23 @@ class Manutencoes extends Model
         'descricaoproblema',
            'data',
            'fkequipamentos',
+           'user_id',
              
             
       ];
-}
+
+
+      public function equipamentos()
+      {
+          return $this->hasOne('App\Models\Equipamentos', 'id', 'fkequipamentos');
+      }
+      
+
+      public function user(){
+       return $this->BelongsTo(User::class);
+      }
+
+
+
+    }
+

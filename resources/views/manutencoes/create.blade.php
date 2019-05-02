@@ -34,7 +34,7 @@
                </div>
 	      <label for="data">Data da abertura:</label>
         {!!
-				Form::date('datadev', \Carbon\Carbon::now(),['class' => 'form-control']);
+				Form::date('data', \Carbon\Carbon::now(),['class' => 'form-control']);
 
               !!}
           </div>
