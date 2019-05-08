@@ -79,6 +79,10 @@ class EquipamentosController extends Controller
                 return redirect('/equipamentos')->with('success', 'Equipamento incluido com sucesso');
     }
 
+    
+
+
+
     /**
      * Display the specified resource.
      *

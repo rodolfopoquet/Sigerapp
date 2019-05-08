@@ -14,6 +14,9 @@ class Manutencoes extends Model
            'data',
            'fkequipamentos',
            'user_id',
+           'status',
+           'solucao',
+           'dataencerramento'
              
             
       ];
@@ -24,6 +27,11 @@ class Manutencoes extends Model
           return $this->hasOne('App\Models\Equipamentos', 'id', 'fkequipamentos');
       }
       
+      public function reservas()
+      {
+          return $this->hasOne('App\Models\Reservas', 'id', 'fkreservas');
+      }
+           
 
       public function user(){
        return $this->BelongsTo(User::class);

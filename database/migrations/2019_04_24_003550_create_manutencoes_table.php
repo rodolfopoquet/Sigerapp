@@ -18,9 +18,14 @@ class CreateManutencoesTable extends Migration
             $table->text('descricaoproblema');
             $table->date('data');
             $table->integer('fkequipamentos')->unsigned();
-            $table->foreign('fkequipamentos')->references('id')->on('equipamentos');        
+            $table->foreign('fkequipamentos')->references('id')->on('equipamentos');  
+            $table->string('status');      
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->text('solucao')->nullable();
+            $table->date('dataencerramento')->nullable();;
+            
+            
             $table->timestamps();
         });
     }

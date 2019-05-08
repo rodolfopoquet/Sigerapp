@@ -22,7 +22,10 @@ class Devolucao extends Model
     {
         return $this->hasOne('App\Models\Reservas', 'id', 'fkreservas');
     }
-
+    public function equipamentos()
+    {
+        return $this->hasOne('App\Models\Equipamentos', 'id', 'fkequipamentos');
+    }
     
 
     public function user(){

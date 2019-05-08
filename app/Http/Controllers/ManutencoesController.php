@@ -43,6 +43,9 @@ class ManutencoesController extends Controller
             'descricaoproblema'          => 'required|max:1600',
             'fkequipamentos'             => 'required',
             'data'                       => 'required|date',
+            'status'                     => 'required',
+          
+            
                       
        ],[
            'descricaoproblema.required' => 'O campo descrição do problema apresentado deve ser preenchido obrigatóriamente',
@@ -56,7 +59,8 @@ class ManutencoesController extends Controller
                  'descricaoproblema'  => $request->get('descricaoproblema'),
                  'data'               => $request->get('data'),
 		         'fkequipamentos'     => $request->get('fkequipamentos'),
-		         'user_id'            => auth()->user()->id,
+                 'user_id'            => auth()->user()->id,
+                 'status'             => $request->get('status'),
 
                  
                  
@@ -75,7 +79,10 @@ class ManutencoesController extends Controller
    
     }
 
-    
+    public function encerrar(Request $request, $id)
+    {
+
+    }
 
     /**
      * Display the specified resource.

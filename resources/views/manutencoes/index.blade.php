@@ -31,6 +31,7 @@
           <td><b>Numero de série:</b></td>  
           <td><b>Descrição da OS:<b></td>  
           <td><b>Data de de Abertura da O.S:</b></td>
+          <td><b>Status:</b><td>
           
           
          
@@ -49,9 +50,10 @@
             <td>{{$manutencoes->equipamentos->codidentificacao}}</td>
             <td>{{$manutencoes->descricaoproblema}}</td>
             <td>{{$manutencoes->data}}</td>
+            <td><font color='red'>{{$manutencoes->status}}</font><td>
             
             
-		
+            <td><a href="{{ route('manutencoes.index')}}" class="btn btn-primary">Fechar O.S </a></td>
             
             
         
