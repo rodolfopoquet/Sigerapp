@@ -46,7 +46,7 @@
             <input type="hidden" class="form-control" name="status" value="Aberta"/>
 	  </div>
 	  <button type="submit" class="btn btn-primary">Abrir</button>
-          <a href="{{ route('devolucao.index')}}" class="btn btn-primary">Voltar</a>
+          <a href="{{ route('manutencoes.index')}}" class="btn btn-primary">Voltar</a>
       </form>
   </div>
 </div>

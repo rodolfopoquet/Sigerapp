@@ -15,8 +15,7 @@ class Manutencoes extends Model
            'fkequipamentos',
            'user_id',
            'status',
-           'solucao',
-           'dataencerramento'
+           
              
             
       ];
