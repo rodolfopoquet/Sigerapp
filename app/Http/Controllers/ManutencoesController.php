@@ -81,7 +81,9 @@ class ManutencoesController extends Controller
 
     public function encerrar(Request $request, $id)
     {
-
+      $equipamentos=Equipamentos::find($manutencoes->fkequipamentos);
+      $equipamentos->status='Disponível';
+      $equipamentos->save();
     }
 
     /**
@@ -128,4 +130,6 @@ class ManutencoesController extends Controller
     {
         //
     }
+
+    
 }

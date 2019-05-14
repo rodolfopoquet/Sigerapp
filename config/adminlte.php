@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'purple-light',
+    'skin' => 'black',
 
     /*
     |--------------------------------------------------------------------------
@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'layout' => null,
+    'layout' =>fixed,
 
     /*
     |--------------------------------------------------------------------------
@@ -115,30 +115,30 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Equipamentos',
+            'text'        => 'Cadastro de equipamentos',
             'url'         => '/equipamentos',
-            'icon'        => 'file',
+            'icon'        => 'edit',
             'label'       => '',
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Reservas',
+            'text'        => 'Reservas de equipamentos',
             'url'         => '/reservas',
-            'icon'        => 'file',
+            'icon'        => 'calendar-minus-o ',
             'label'       => '',
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Devoluções',
+            'text'        => 'Devoluções de equipamentos',
             'url'         => '/devolucao',
-            'icon'        => 'file',
+            'icon'        => 'refresh',
             'label'       => '',
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Manutenção',
+            'text'        => 'Manutenção de equipamentos',
             'url'         => '/manutencoes',
-            'icon'        => 'file',
+            'icon'        => 'wrench',
             'label'       => '',
             'label_color' => 'success',
         ],
