@@ -15,7 +15,7 @@ class Devolucao extends Migration
     {
         Schema::create('devolucao', function (Blueprint $table) {
             $table->softDeletes();
-            $table->increments('id');
+            $table->increments('id')->onDelete('cascade');
             $table->integer('fkreservas')->unsigned();
             $table->foreign('fkreservas')->references('id')->on('reservas')->onDelete('cascade');
             $table->integer('user_id')->unsigned();
@@ -34,6 +34,6 @@ class Devolucao extends Migration
      */
     public function down()
     {
-         Schema::drop('devolucao');  
+        Schema::dropIfExists('devolucao');
     }
 }

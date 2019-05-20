@@ -64,10 +64,6 @@ class ReservasController extends Controller
 
         $equipamento = Equipamentos::find($request->get('fkequipamentos'));
 
-        if($equipamento->status=='Indisponível'){
-          return redirect('/reservas')->with('error', 'Equipamento já reservado!');
-          
-        }
 
         $reservas = new Reservas([
             'fkequipamentos'           => $request->get('fkequipamentos'),
@@ -83,7 +79,8 @@ class ReservasController extends Controller
         $equipamento->save();
 
         $reservas->save();
-        return redirect('/reservas')->with('success', 'Reserva  realizada com sucesso');
+        alert()->success('Equipamento reservado com sucesso');
+        return redirect('/reservas');
     }
 
     /**
@@ -117,30 +114,6 @@ class ReservasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'fkequipamentos'          => 'required|max:60',
-            'solicitante'             => 'required|max:60',
-            'dtagendamento'           => 'required|date',
-            'horario'                 => 'required|max:60',
-           
-        ],
-        [
-            'horario.required'=>'O campo horário deve ser preenchido obrigatóriamente',
-
-        ]
-        
-             
-             );
-                $reservas = Reservas::find($id);
-                $reservas->fkequipamentos         = $request->get('fkequipamentos');
-                $reservas->user_id                =  auth()->user()->id;
-                $reservas->dtagendamento          = $request->get('dtagendamento');
-                $reservas->horario                = $request->get('horario');
-               
-               
-              
-               $reservas->save();
-               return redirect('/reservas')->with('success', 'Reserva atualizada com sucesso');
     }
 
     /**
@@ -165,8 +138,8 @@ class ReservasController extends Controller
         $reservas->delete();
 
         
-   
-        return redirect('/reservas')->with('success', 'Reserva cancelada com sucesso');
+        alert()->success('Reserva cancelada com sucesso');
+        return redirect('/reservas');
     }
    
 }
