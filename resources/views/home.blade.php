@@ -7,6 +7,6 @@
 @stop
 
 @section('content')
-    <p>You are logged in!</p>
+    <p>Você está logado como {{auth()->user()->name}}</p>
     
 @stop

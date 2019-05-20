@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'SIGER',
+    'title' => 'SIGER- Sistema Gerenciador de Reservas de Equipamentos',
 
     'title_prefix' => '',
 

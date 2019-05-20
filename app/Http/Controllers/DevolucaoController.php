@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\EquipamentosController;
+use App\Models\Devolucao;
 use App\Models\Reservas;
 use App\Models\Equipamentos;
-use App\Models\Devolucao;
 
 class DevolucaoController extends Controller
 {
