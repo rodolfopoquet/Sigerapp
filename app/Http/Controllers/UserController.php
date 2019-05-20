@@ -40,9 +40,12 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required',
-            'email'=> 'required|email|unique:users',
-            'password' => 'required|confirmed|min:6|max:18'
+            'name'      =>'required',
+            'email'     => 'required|email|unique:users',
+            'password'  => 'required|confirmed|min:6|max:18',
+            'matricula' =>'required|unique:users',
+            'telefone'  =>'required|min:10|max:11|unique:users',
+            'funcao'    =>'required',
         ],[
             'name.required' => 'O preenchimento do campo nome é obrigatório',
             'email.required'=>'É necessário preencher um e-mail válido para efetuar o cadastro',
@@ -51,11 +54,21 @@ class UserController extends Controller
             'password.confirmed'=>'Senha digitada não confere com o campo senha',
             'password.min' =>'Minimo permitido são 6 dígitos',
             'password.max' => 'Maximo permitido é de 18 dígitos',
+            'telefone.required'=>'O preenchimento do número de telefone é obrigatório',
+            'telefone.unique'=>'Este telefone já está cadastrado',
+            'telefone.min'=>'O número de telefone deve ter no mínimo 10 digitos',
+            'telefone.max'=>'O número de telefone deve ter no máximo 11 digitos',
+            'matricula.required'=>'É obrigatório inserir o número de matricula',
+            'funcao.required'    =>'Deve ser informado o cargo do colaborador',
+
 
 
           ]);
           $user = new User([
             'name' => $request->get('name'),
+            'telefone' => $request->get('telefone'),
+            'funcao' => $request->get('funcao'),
+            'matricula' => $request->get('matricula'),
             'email'=> $request->get('email'),
             'password' => Hash::make($request->password)
           ]);
@@ -118,6 +131,11 @@ class UserController extends Controller
         $rules = [
             'mypassword' => 'required',
             'password' => 'required|confirmed|min:6|max:18',
+            'telefone'  =>'required|min:10|max:11',
+            'name'      =>'required',
+            'email'     => 'required|email|unique:users',
+            
+            
         ];
         
         $messages = [
@@ -126,6 +144,15 @@ class UserController extends Controller
             'password.confirmed'=> 'Senhas não coincidem',
             'password.min' =>'Minimo permitido são 6 dígitos',
             'password.max' => 'Maximo permitido é de 18 dígitos',
+            'telefone.required'=>'O preenchimento do número de telefone é obrigatório',
+            'telefone.unique'=>'Este telefone já está cadastrado',
+            'telefone.min'=>'O número de telefone deve ter no mínimo 10 digitos',
+            'telefone.max'=>'O número de telefone deve ter no máximo 11 digitos',
+            'matricula.required'=>'É obrigatório inserir o número de matricula',
+            'name.required' => 'O preenchimento do campo nome é obrigatório',
+            'email.unique'=>'Este e-mail já está cadastrado',
+            'email.required'=>'É obrigatório o preenchimento com um e-mail válido',
+           
         ];
         
        $validator = Validator::make($request->all(), $rules, $messages);
@@ -136,8 +163,21 @@ class UserController extends Controller
             if (Hash::check($request->mypassword, Auth::user()->password)){
                 $user = new User();
                 $user->where('email', '=', Auth::user()->email)
-                     ->update(['password' => bcrypt($request->password)]);
-                     alert()->success('Senha alterada  com sucesso');
+                     ->update(['password' => bcrypt($request->password),
+                               'name'=>$request->get('name'),
+                               'telefone'=>$request->get('telefone'),
+                               'email' =>$request->get('email'),
+                               'matricula' =>$request->get('matricula'),
+                    
+                    ],
+
+
+
+
+                    
+
+                    );
+                     alert()->success('Informações da conta foram alteradas com sucesso');
                  return redirect('home');
             }
             else

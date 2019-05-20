@@ -109,11 +109,7 @@ return [
 
     'menu' => [
         'MENU PRINCIPAL',
-        [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
+       
         [
             'text'        => 'Cadastro de equipamentos',
             'url'         => '/equipamentos',
@@ -150,7 +146,7 @@ return [
             'icon' => 'user',
         ],
         [
-            'text' => 'Alterar senha',
+            'text' => 'Alterar dados cadastrais',
             'url'  => 'user/password',
             'icon' => 'lock',
         ],

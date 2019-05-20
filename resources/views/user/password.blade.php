@@ -26,12 +26,33 @@
 <form method="post" action="{{url('user/updatepassword')}}">
     {{csrf_field()}}
             <div class="form-group">
+                <label for="name">Nome:</label>
+                <input type="text" name="name" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="matricula">Matricula:</label>
+                <input type="text" name="matricula" class="form-control">
+            </div>
+
+           
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="text" name="telefone" class="form-control">
+            </div>
+
+            <div class="form-group">
                 <label for="mypassword">Senha Atual:</label>
                 <input type="password" name="mypassword" class="form-control">
-               
+            </div>
             <div class="form-group">
                 <label for="password">Nova Senha:</label>
                 <input type="password" name="password" class="form-control">
+            </div>
                 
             <div class="form-group">
                 <label for="mypassword">Confirme a nova senha:</label>
