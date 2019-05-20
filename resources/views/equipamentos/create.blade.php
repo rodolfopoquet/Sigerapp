@@ -7,8 +7,15 @@
 @stop
 
 @section('content')
-    
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <style>
   .uper {
     margin-top: 40px;
@@ -18,18 +25,7 @@
   <div class="card-header">
 
   </div>
-  <div class="card-body">
-    @if ($errors->any())
-      <div class="alert alert-danger">
-      
-        <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-      </div><br />
-    @endif
-      <form method="post" action="{{ route('equipamentos.store') }}">
+  <form method="post" action="{{ route('equipamentos.store') }}">
           <div class="form-group">
               @csrf
               <label for="eqdescricao">Tipo de Equipamento:</label>

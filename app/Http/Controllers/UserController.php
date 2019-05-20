@@ -43,6 +43,16 @@ class UserController extends Controller
             'name'=>'required',
             'email'=> 'required|email|unique:users',
             'password' => 'required|confirmed|min:6|max:18'
+        ],[
+            'name.required' => 'O preenchimento do campo nome é obrigatório',
+            'email.required'=>'É necessário preencher um e-mail válido para efetuar o cadastro',
+            'email.unique'=>'Este e-mail já está cadastrado, oriente o colaborador a recuperar a senha',
+            'password.required'=>'Insira uma senha, para conclusão do cadastro',
+            'password.confirmed'=>'Senha digitada não confere com o campo senha',
+            'password.min' =>'Minimo permitido são 6 dígitos',
+            'password.max' => 'Maximo permitido é de 18 dígitos',
+
+
           ]);
           $user = new User([
             'name' => $request->get('name'),
@@ -50,7 +60,8 @@ class UserController extends Controller
             'password' => Hash::make($request->password)
           ]);
           $user->save();
-          return redirect('/novousuario/create')->with('success', 'Usuário cadastrado com sucesso');
+          alert()->success('Usuário cadastrado com sucesso');
+          return redirect('/home');
         
     }
 
@@ -110,8 +121,8 @@ class UserController extends Controller
         ];
         
         $messages = [
-            'mypassword.required' =>'Campo obrigatório',
-            'password.required' =>'Campo obrigatório',
+            'mypassword.required' =>'O campo senha atual é obrigatório',
+            'password.required' =>'Campo senha nova é obrigatório',
             'password.confirmed'=> 'Senhas não coincidem',
             'password.min' =>'Minimo permitido são 6 dígitos',
             'password.max' => 'Maximo permitido é de 18 dígitos',
@@ -126,11 +137,13 @@ class UserController extends Controller
                 $user = new User();
                 $user->where('email', '=', Auth::user()->email)
                      ->update(['password' => bcrypt($request->password)]);
-                return redirect('home')->with('success', 'Senha alterada com sucesso!');
+                     alert()->success('Senha alterada  com sucesso');
+                 return redirect('home');
             }
             else
             {
-                return redirect('user/password')->with('message', 'Credenciais Incorretas');
+                alert()->error('Credenciais Incorretas');
+                return redirect('user/password');;
             }
         }
     }

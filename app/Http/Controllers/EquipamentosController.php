@@ -40,7 +40,7 @@ class EquipamentosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-             'eqdescricao'          => 'required|max:30',
+             'eqdescricao'          => 'required|max:30|unique:equipamentos',
              'marca'                => 'required|:max:30',
              'modelo'               => 'required|:max:30',
              'status'               => 'required',
@@ -54,6 +54,7 @@ class EquipamentosController extends Controller
             'codidentificacao.required'=>'O campo de número de série deve ser preenchido obrigatóriamente',
             'codidentificacao.unique'=>'O campo número de série é único',
             'eqdescricao.max'=>'É permitido no máximo 30 digitos',
+            'eqdescricao.unique'=>'Não é permitido cadastrar tipos de equipamentos iguais',
             'modelo.max'=>'É permitido no máximo 30 dígitos',
                    
             ]
@@ -76,7 +77,9 @@ class EquipamentosController extends Controller
             );
                
                 $equipamentos->save();
-                return redirect('/equipamentos')->with('success', 'Equipamento incluido com sucesso');
+                alert()->success('Equipamento adicionado com sucesso');
+                return redirect('/equipamentos');
+
     }
 
     
@@ -152,19 +155,22 @@ class EquipamentosController extends Controller
               if($equipamentos->status=='Disponível'){
                 $equipamentos->status='Disponível';
                $equipamentos->save();
-               return redirect('/equipamentos')->with('success', 'Equipamento atualizado com sucesso');
+               alert()->success('Equipamento atualizado com sucesso');
+               return redirect('/equipamentos');
                }
 
                if($equipamentos->status=='Indisponível'){
                 $equipamentos->status='Indisponível';
                 $equipamentos->save();
-                return redirect('/equipamentos')->with('success', 'Equipamento atualizado com sucesso');
+                alert()->success('Equipamento atualizado com sucesso');
+                return redirect('/equipamentos');
                }
 
                if($equipamentos->status=='Retirado para manutenção'){
                 $equipamentos->status='Retirado para manutenção';
                 $equipamentos->save();
-                return redirect('/equipamentos')->with('success', 'Equipamento atualizado com sucesso');
+                alert()->success('Equipamento atualizado com sucesso');
+                return redirect('/equipamentos');
                }
    
             }
@@ -177,10 +183,19 @@ class EquipamentosController extends Controller
      */
     public function destroy($id)
     {
-        $equipamentos = Equipamentos::find($id);
-        $equipamentos ->delete();
+        $equipamentos = Equipamentos::whereStatus('Disponível')->find($id);
+       
+      
+        if(!$equipamentos){
+            alert()->error('Equipamento não pode ser removido, pois está em uso ou manutenção');
+            return redirect('/equipamentos');
+        }
 
-        return redirect('/equipamentos')->with('success', 'Equipamento excluido com sucesso');
+        $equipamentos->delete();
+
+        alert()->success('Equipamento excluido com sucesso');
+
+        return redirect('/equipamentos');
     }
 
     
