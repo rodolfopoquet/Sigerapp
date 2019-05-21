@@ -22,7 +22,7 @@ class Equipamentos extends Model
         'status',
         'codidentificacao',
         'dt_aquisicao',
-       
+
     ];
     /**
      * @var string

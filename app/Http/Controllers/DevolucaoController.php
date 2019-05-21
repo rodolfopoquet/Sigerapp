@@ -17,9 +17,8 @@ class DevolucaoController extends Controller
      */
     public function index()
     {
-        $devolucao      = Devolucao::orderBy('id', 'DESC')->get();
-        $reservas       = Reservas::all();
-        return view('devolucao.index', compact('devolucao','reservas'));
+        $devolucao = Devolucao::orderBy('id', 'DESC')->has('reservas.equipamentos')->get();
+        return view('devolucao.index', compact('devolucao'));
     }
 
     /**

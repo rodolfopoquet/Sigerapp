@@ -22,7 +22,7 @@ class Reservas extends Model
         'user_id',
         'dtagendamento',
         'horario'
-       
+
 
     ];
     /**

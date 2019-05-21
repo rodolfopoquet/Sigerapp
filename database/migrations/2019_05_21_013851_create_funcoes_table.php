@@ -16,8 +16,6 @@ class CreateFuncoesTable extends Migration
         Schema::create('funcoes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('cargo')->unique();
-
-        
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    
+
 
     <style>
   .uper {
@@ -22,7 +22,7 @@
   <div class="card-body">
     @if ($errors->any())
       <div class="alert alert-danger">
-      
+
         <ul>
             @foreach ($errors->all() as $error)
               <li>{{ $error }}</li>
@@ -33,9 +33,9 @@
       <form method="post" action="{{ route('devolucao.store') }}">
         @csrf
         <div class="form-group">
-             
+
         <div class="form-group">
-             
+
              <label for="fkreservas">Equipamento reservado:</label>
              
             
@@ -55,19 +55,16 @@
 
                </div>
 	      <label for="datadev">Data da devolucao:</label>
-        {!!
-				Form::date('datadev', \Carbon\Carbon::now(),['class' => 'form-control']);
-
-              !!}
+              <input type="date" id="datadev" class="form-control" name="datadev" maxlength="60" value="{{ old('datadev') }}" />
           </div>
 	      <div class="form-group">
  		<label for="horadev">Hora da devolução:</label>
-        	<input type="time"  id="horadev" class="form-control" name="horadev" autofocus value="{{old('horadev')}}"/>
+        	<input type="time"  id="horadev" class="form-control" name="horadev" value="{{ old('horadev') }}"  />
 	  </div>
 
      <div class="form-group">
  		<label for="obs">Observações:</label>
-        	<textarea  rows="4" cols="50" id="obs" class="form-control" name="obs" autofocus > {{old('obs')}}</textarea>
+        	<input type="textarea" id="obs" class="form-control" name="obs" value="{{ old('obs') }}" />
 	  </div>
 	  <button type="submit" class="btn btn-primary">Incluir</button>
           <a href="{{ route('devolucao.index')}}" class="btn btn-primary">Voltar</a>
