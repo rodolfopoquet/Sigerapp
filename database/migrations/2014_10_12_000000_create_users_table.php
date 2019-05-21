@@ -17,8 +17,10 @@ class CreateUsersTable extends Migration
             $table->softDeletes();
             $table->increments('id')->onDelete('cascade')->unique();
             $table->string('name');
+
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+
             $table->string('password');
             $table->string('matricula');
             $table->string('telefone');

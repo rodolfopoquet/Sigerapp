@@ -127,7 +127,8 @@ class UserController extends Controller
      public function password(){
         return View('user.password');
     }
- public function updatePassword(Request $request){
+
+    public function updatePassword(Request $request){
         $rules = [
             'mypassword' => 'required',
             'password' => 'required|confirmed|min:6|max:18',
@@ -163,27 +164,22 @@ class UserController extends Controller
             if (Hash::check($request->mypassword, Auth::user()->password)){
                 $user = new User();
                 $user->where('email', '=', Auth::user()->email)
-                     ->update(['password' => bcrypt($request->password),
-                               'name'=>$request->get('name'),
-                               'telefone'=>$request->get('telefone'),
-                               'email' =>$request->get('email'),
-                               'matricula' =>$request->get('matricula'),
-                    
-                    ],
-
-
-
-
-                    
-
-                    );
+                     ->update(
+                         [
+                            'password' => bcrypt($request->password),
+                            'name'=>$request->get('name'),
+                            'telefone'=>$request->get('telefone'),
+                            'email' =>$request->get('email'),
+                            'matricula' =>$request->get('matricula')
+                        ]
+                     );
                      alert()->success('Informações da conta foram alteradas com sucesso');
                  return redirect('home');
             }
             else
             {
                 alert()->error('Credenciais Incorretas');
-                return redirect('user/password');;
+                return redirect('user/password');
             }
         }
     }
