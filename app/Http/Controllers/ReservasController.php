@@ -20,7 +20,7 @@ class ReservasController extends Controller
      */
     public function index()
     {
-        $reservas = Reservas::all();
+        $reservas = Reservas::orderBy('id', 'DESC')->has('equipamentos')->get();
 
         return view('reservas.index', compact('reservas'));
 
@@ -128,14 +128,14 @@ class ReservasController extends Controller
     {
         $reservas = Reservas::find($id);
 
-        if($reserva){
-            $equipamento = Equipamentos::find($reserva->fkequipamentos);
+        if($reservas){
+            $equipamento = Equipamentos::find($reservas->fkequipamentos);
 
             $equipamento->status = 'Disponivel';
             $equipamento->save();
 
         }
-        $reserva->delete();
+        $reservas->delete();
 
         return redirect('/reservas')->with('success', 'Reserva cancelada com sucesso');
     }

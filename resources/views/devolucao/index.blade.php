@@ -45,11 +45,12 @@
 
 
 
-	    <td>{{$devolucao->user->name}}</td>
-            <td>{{$devolucao->reservas->user->name}}</td>
-            <td>{{$devolucao->horadev}}</td>
-            <td>{{$devolucao->datadev}}</td>
-            <td>{{$devolucao->obs}}</td>
+	          <td>{{$devolucoes->user->name}}</td>
+            <td>{{$devolucoes->reservas->user->name}}</td>
+            <td>{{$devolucoes->horadev}}</td>
+            <td>{{$devolucoes->datadev}}
+            <td>{{$devolucoes->datadev}}</td>
+            <td>{{$devolucoes->obs}}</td>
 
 
 
