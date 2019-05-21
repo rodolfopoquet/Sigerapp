@@ -20,10 +20,10 @@ class ReservasController extends Controller
      */
     public function index()
     {
-        $reservas = Reservas::orderBy('id', 'DESC')->has('equipamentos')->get();
-        
+        $reservas = Reservas::all();
+
         return view('reservas.index', compact('reservas'));
-       
+
     }
     /**
      * Show the form for creating a new resource.
@@ -32,13 +32,13 @@ class ReservasController extends Controller
      */
     public function create()
     {
-        $equipamentos= Equipamentos::disponivel()->get();
-        $reservas =  Reservas::all();
+        $equipamentos= Equipamentos::all();
+        // $reservas =  Reservas::disponivel()->get();
 
         return view('reservas.create')->withEquipamentos($equipamentos);
     }
-    
-     
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -47,39 +47,21 @@ class ReservasController extends Controller
      */
     public function store(Request $request)
     {
-       
         $request->validate([
             'fkequipamentos'          => 'required|max:30',
             'dtagendamento'           => 'required|date',
             'horario'                 => 'required',
-        ],
-        [
-            'horario.required'=>'O campo horário deve ser preenchido obrigatóriamente',
-
-        ]
-    
-    
-    
-    );
-
-        $equipamento = Equipamentos::find($request->get('fkequipamentos'));
-
-
-        $reservas = new Reservas([
+        ]);
+        $reservas = Reservas::create([
             'fkequipamentos'           => $request->get('fkequipamentos'),
             'user_id'                  => auth()->user()->id,
             'dtagendamento'            => $request->get('dtagendamento'),
             'horario'                  => $request->get('horario'),
         ]);
-        //bloquear o item e atualizar o seu 'status'
-        /*
-        fazer o select do item pela chave*/
-
-        $equipamento->status = 'Indisponível';
+        $equipamento = Equipamentos::find($request->get('fkequipamentos'));
+        $equipamento->status = 'Indisponivel';
         $equipamento->save();
-
-        $reservas->save();
-        alert()->success('Equipamento reservado com sucesso');
+        alert()->success('Reserva  realizada com sucesso');
         return redirect('/reservas');
     }
 
@@ -114,6 +96,26 @@ class ReservasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'fkequipamentos'          => 'required|max:60',
+            'solicitante'             => 'required|max:60',
+            'dtagendamento'           => 'required|date',
+            'horario'                 => 'required|max:60',
+
+             ]
+
+
+             );
+                $reservas = Reservas::find($id);
+                $reservas->fkequipamentos         = $request->get('fkequipamentos');
+                $reservas->user_id                =  auth()->user()->id;
+                $reservas->dtagendamento          = $request->get('dtagendamento');
+                $reservas->horario                = $request->get('horario');
+
+
+
+               $reservas->save();
+               return redirect('/reservas')->with('success', 'Reserva atualizada com sucesso');
     }
 
     /**
@@ -126,20 +128,16 @@ class ReservasController extends Controller
     {
         $reservas = Reservas::find($id);
 
-       
-        if($reservas->equipamentos->status=='Indisponível'){
+        if($reserva){
+            $equipamento = Equipamentos::find($reserva->fkequipamentos);
 
-            
-            $equipamento = Equipamentos::find($reservas->fkequipamentos);
-            $equipamento->status = 'Disponível';
-            $equipamento->save(); 
+            $equipamento->status = 'Disponivel';
+            $equipamento->save();
 
         }
-        $reservas->delete();
+        $reserva->delete();
 
-        
-        alert()->success('Reserva cancelada com sucesso');
-        return redirect('/reservas');
+        return redirect('/reservas')->with('success', 'Reserva cancelada com sucesso');
     }
    
 }
