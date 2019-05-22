@@ -32,9 +32,8 @@ class ReservasController extends Controller
      */
     public function create()
     {
-        $equipamentos= Equipamentos::all();
-        // $reservas =  Reservas::disponivel()->get();
-
+        $equipamentos=Equipamentos::disponivel()->get();
+        $reservas=Reservas::all();
         return view('reservas.create')->withEquipamentos($equipamentos);
     }
 
@@ -59,7 +58,7 @@ class ReservasController extends Controller
             'horario'                  => $request->get('horario'),
         ]);
         $equipamento = Equipamentos::find($request->get('fkequipamentos'));
-        $equipamento->status = 'Indisponivel';
+        $equipamento->status = 'Indisponível';
         $equipamento->save();
         alert()->success('Reserva  realizada com sucesso');
         return redirect('/reservas');
@@ -131,7 +130,7 @@ class ReservasController extends Controller
         if($reservas){
             $equipamento = Equipamentos::find($reservas->fkequipamentos);
 
-            $equipamento->status = 'Disponivel';
+            $equipamento->status = 'Disponível';
             $equipamento->save();
 
         }

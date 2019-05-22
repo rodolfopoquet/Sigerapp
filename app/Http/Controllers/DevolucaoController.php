@@ -7,6 +7,7 @@ use App\Http\EquipamentosController;
 use App\Models\Devolucao;
 use App\Models\Reservas;
 use App\Models\Equipamentos;
+use App\Models\User;
 
 class DevolucaoController extends Controller
 {
@@ -66,12 +67,12 @@ class DevolucaoController extends Controller
           
 
           $equipamentos = Equipamentos::find($devolucao->reservas->fkequipamentos);
-           
-          $equipamentos->status = 'Disponível';
-          $equipamentos->save(); 
+          $equipamentos->status='Disponível';
+          $equipamentos->save();  
+         
+         
           
-         /* $reservas=Reservas::find($devolucao->fkreservas);
-          $reservas->delete();*/
+         
           
          
 

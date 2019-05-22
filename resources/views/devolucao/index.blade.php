@@ -28,6 +28,7 @@
 
           <td><b>Recebido por:</b></td>
           <td><b>Soliciado por:</b></td>
+          <td><b>Equipamentos</b></td>
           <td><b>Hora da devolução:</b></td>
           <td><b>Data da reserva:<b></td>
           <td><b>Data da devolução:</b></td>
@@ -47,8 +48,9 @@
 
 	          <td>{{$devolucoes->user->name}}</td>
             <td>{{$devolucoes->reservas->user->name}}</td>
+            <td>{{$devolucoes->reservas->equipamentos->eqdescricao}}
             <td>{{$devolucoes->horadev}}</td>
-            <td>{{$devolucoes->datadev}}
+            <td>{{$devolucoes->reservas->dtagendamento}}
             <td>{{$devolucoes->datadev}}</td>
             <td>{{$devolucoes->obs}}</td>
 
