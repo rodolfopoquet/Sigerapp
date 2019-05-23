@@ -31,7 +31,7 @@ class DevolucaoController extends Controller
     {
         $devolucao= Devolucao::all();
         $equipamentos =  Equipamentos::has('reservas')->disponivel(false)->get();
-        return view('devolucao.create')->withEquipamentos('equipamentos');
+        return view('devolucao.create')->withEquipamentos($equipamentos);
     }
 
     /**
