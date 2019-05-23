@@ -39,9 +39,13 @@ class Reservas extends Model
      */
     public function equipamentos()
     {
-        return $this->hasOne('App\Models\Equipamentos', 'id', 'fkequipamentos');
+        return $this->hasOne(Equipamentos::class, 'id', 'fkequipamentos');
     }
 
+    public function reservas()
+    {
+        return $this->hasOne(Equipamentos::class, 'id', 'fkequipamentos');
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

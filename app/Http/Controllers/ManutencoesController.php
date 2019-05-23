@@ -55,7 +55,7 @@ class ManutencoesController extends Controller
         
              
              );
-               $manutencoes = new Manutencoes([
+               $manutencoes = Manutencoes::create([
                  'descricaoproblema'  => $request->get('descricaoproblema'),
                  'data'               => $request->get('data'),
 		         'fkequipamentos'     => $request->get('fkequipamentos'),

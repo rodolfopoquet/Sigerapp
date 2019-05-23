@@ -18,16 +18,21 @@ class Devolucao extends Model
       ];
     protected $table ='devolucao';
     protected $dates = ['deleted_at'];
+   
     public function reservas()
     {
-        return $this->hasOne('App\Models\Reservas', 'id', 'fkreservas');
+        return $this->hasOne(Reservas::class, 'id', 'fkreservas');
     }
     public function equipamentos()
     {
-        return $this->hasOne('App\Models\Equipamentos', 'id', 'fkequipamentos');
+        return $this->hasOne(Equipamentos::class, 'id', 'fkequipamentos');
     }
     
-
+    public function devolucao()
+    {
+        return $this->hasOne(Devolucao::class,'fkequipamentos', 'id');
+    }
+   
     public function user(){
         return $this->BelongsTo(User::class);
     }

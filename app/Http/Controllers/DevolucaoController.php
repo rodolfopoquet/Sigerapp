@@ -30,8 +30,8 @@ class DevolucaoController extends Controller
     public function create()
     {
         $devolucao= Devolucao::all();
-        $reservas =  Equipamentos::has('reserva')->disponivel(false)->get();
-        return view('devolucao.create')->withReservas($reservas);
+        $equipamentos =  Equipamentos::has('reservas')->disponivel(false)->get();
+        return view('devolucao.create')->withEquipamentos('equipamentos');
     }
 
     /**
@@ -65,18 +65,10 @@ class DevolucaoController extends Controller
            
           ]);
           
-
           $equipamentos = Equipamentos::find($devolucao->reservas->fkequipamentos);
           $equipamentos->status='Disponível';
-          $equipamentos->save();  
-         
-         
-          
-         
-          
-         
-
-           $devolucao->save();
+          $equipamentos->save();       
+        $devolucao->save();
            alert()->success('Equipamento devolvido com sucesso');
            return redirect('/devolucao');
        

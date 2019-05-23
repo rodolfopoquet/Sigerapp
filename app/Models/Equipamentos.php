@@ -46,11 +46,15 @@ class Equipamentos extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function reserva()
+    public function reservas()
     {
         return $this->hasOne(Reservas::class,'fkequipamentos', 'id');
     }
 
+    public function devolucao()
+    {
+        return $this->hasOne(Devolucao::class,'fkequipamentos', 'id');
+    }
 
     public function manutencoes()
     {

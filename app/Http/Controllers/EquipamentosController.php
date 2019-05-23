@@ -62,7 +62,7 @@ class EquipamentosController extends Controller
          
               
               );
-                $equipamentos = new Equipamentos([
+                $equipamentos =Equipamentos::create([
                   'eqdescricao'        => $request->get('eqdescricao'),
                   'marca'              => $request->get('marca'),
                   'modelo'             => $request->get('modelo'),
@@ -71,11 +71,9 @@ class EquipamentosController extends Controller
                   'dt_aquisicao'       => $request->get('dt_aquisicao'),
                   
                  
-                ]
+                ]);
             
-            
-            );
-               
+                                      
                 $equipamentos->save();
                 alert()->success('Equipamento adicionado com sucesso');
                 return redirect('/equipamentos');
