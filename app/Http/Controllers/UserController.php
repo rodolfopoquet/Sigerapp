@@ -45,7 +45,7 @@ class UserController extends Controller
             'password'  => 'required|confirmed|min:6|max:18',
             'matricula' =>'required|unique:users',
             'telefone'  =>'required|min:10|max:11|unique:users',
-            'funcao'    =>'required',
+            
         ],[
             'name.required' => 'O preenchimento do campo nome é obrigatório',
             'email.required'=>'É necessário preencher um e-mail válido para efetuar o cadastro',
@@ -59,7 +59,7 @@ class UserController extends Controller
             'telefone.min'=>'O número de telefone deve ter no mínimo 10 digitos',
             'telefone.max'=>'O número de telefone deve ter no máximo 11 digitos',
             'matricula.required'=>'É obrigatório inserir o número de matricula',
-            'funcao.required'    =>'Deve ser informado o cargo do colaborador',
+           
 
 
 
@@ -67,7 +67,6 @@ class UserController extends Controller
           $user = new User([
             'name' => $request->get('name'),
             'telefone' => $request->get('telefone'),
-            'funcao' => $request->get('funcao'),
             'matricula' => $request->get('matricula'),
             'email'=> $request->get('email'),
             'password' => Hash::make($request->password)

@@ -38,6 +38,16 @@
               <label for="email">E-mail :</label>
               <input type="email" class="form-control" name="email"/>
           </div>
+          
+          <div class="form-group">
+              <label for="matricula">Matricula :</label>
+              <input type="text" class="form-control" name="matricula"/>
+          </div>
+
+          <div class="form-group">
+              <label for="telefone">Telefone :</label>
+              <input type="text" class="form-control" name="telefone"/>
+          </div>
           <div class="form-group">
               <label for="password">Senha:</label>
               <input type="password" class="form-control" name="password"/>
