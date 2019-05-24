@@ -64,6 +64,9 @@
 	  </div>
 	  <button type="submit" class="btn btn-primary">Incluir</button>
           <a href="{{ route('devolucao.index')}}" class="btn btn-primary">Voltar</a>
+      
+      
+      a
       </form>
   </div>
 </div>
