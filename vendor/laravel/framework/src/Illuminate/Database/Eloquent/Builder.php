@@ -338,6 +338,8 @@ class Builder
      */
     public function findMany($ids, $columns = ['*'])
     {
+        $ids = $ids instanceof Arrayable ? $ids->toArray() : $ids;
+
         if (empty($ids)) {
             return $this->model->newCollection();
         }
@@ -856,14 +858,27 @@ class Builder
      */
     protected function addUpdatedAtColumn(array $values)
     {
-        if (! $this->model->usesTimestamps()) {
+        if (! $this->model->usesTimestamps() ||
+            is_null($this->model->getUpdatedAtColumn())) {
             return $values;
         }
 
-        return Arr::add(
-            $values, $this->model->getUpdatedAtColumn(),
-            $this->model->freshTimestampString()
+        $column = $this->model->getUpdatedAtColumn();
+
+        $values = array_merge(
+            [$column => $this->model->freshTimestampString()],
+            $values
         );
+
+        $segments = preg_split('/\s+as\s+/i', $this->query->from);
+
+        $qualifiedColumn = end($segments).'.'.$column;
+
+        $values[$qualifiedColumn] = $values[$column];
+
+        unset($values[$column]);
+
+        return $values;
     }
 
     /**

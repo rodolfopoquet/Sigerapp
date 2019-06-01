@@ -58,7 +58,6 @@
 		
 
         
-         <td><a href="{{ route('reservas.edit',$reservas->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
                 <form action="{{ route('reservas.destroy', $reservas->id)}}" method="post">
                   @csrf

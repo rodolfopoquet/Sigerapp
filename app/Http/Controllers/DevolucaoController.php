@@ -44,7 +44,7 @@ class DevolucaoController extends Controller
     {
         $request->validate( [
             'fkreservas'           => 'required',         
-            'obs'                  => 'required',
+            'obs'                  => 'required|max:190',
             'datadev'              => 'required',
             'horadev'		       => 'required',
         ],

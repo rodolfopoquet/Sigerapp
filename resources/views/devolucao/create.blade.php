@@ -66,7 +66,7 @@
           <a href="{{ route('devolucao.index')}}" class="btn btn-primary">Voltar</a>
       
       
-      a
+      
       </form>
   </div>
 </div>
