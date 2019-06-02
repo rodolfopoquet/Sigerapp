@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Equipamentos extends Model
 {
-    use SoftDeletes;
+   
     /**
      * @var array
      */
@@ -31,7 +31,7 @@ class Equipamentos extends Model
     /**
      * @var array
      */
-    protected $dates = ['deleted_at'];
+   
 
     /**
      * @param $query

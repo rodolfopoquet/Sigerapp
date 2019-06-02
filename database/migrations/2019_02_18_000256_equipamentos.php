@@ -14,7 +14,7 @@ class Equipamentos extends Migration
     public function up()
     {
         Schema::create('equipamentos', function (Blueprint $table) {
-            $table->softDeletes();
+            
             $table->increments('id')->onDelete('cascade');
             $table->string('eqdescricao');
             $table->string('marca');

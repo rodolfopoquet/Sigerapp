@@ -14,7 +14,7 @@ class Reservas extends Migration
     public function up()
     {
         Schema::create('reservas', function (Blueprint $table) {
-            $table->softDeletes();
+       
             $table->increments('id');
             $table->integer ('fkequipamentos')->unsigned();
             $table->foreign('fkequipamentos')->references('id')->on('equipamentos')->onDelete('cascade');

@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Reservas extends Model
 {
-    use SoftDeletes;
+    
     /**
      * @var array
      */
@@ -32,7 +32,7 @@ class Reservas extends Model
     /**
      * @var array
      */
-    protected $dates = ['deleted_at'];
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

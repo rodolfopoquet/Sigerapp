@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Devolucao extends Model
 {
-    use SoftDeletes;
+   
     protected $fillable = [
         'fkreservas',
         'fk_id',
@@ -17,7 +17,7 @@ class Devolucao extends Model
         'horadev',
       ];
     protected $table ='devolucao';
-    protected $dates = ['deleted_at'];
+   
    
     public function reservas()
     {
