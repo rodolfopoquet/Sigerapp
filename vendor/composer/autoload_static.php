@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit9fcf2ccd39c9d0c3ffc7762061106836
+class ComposerStaticInit4bf1798c958adc3ab4cdc288754ed29d
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -409,7 +409,6 @@ class ComposerStaticInit9fcf2ccd39c9d0c3ffc7762061106836
         'App\\Http\\Controllers\\DevolucaoController' => __DIR__ . '/../..' . '/app/Http/Controllers/DevolucaoController.php',
         'App\\Http\\Controllers\\EquipamentosController' => __DIR__ . '/../..' . '/app/Http/Controllers/EquipamentosController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
-        'App\\Http\\Controllers\\ManutencoesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManutencoesController.php',
         'App\\Http\\Controllers\\ReservasController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReservasController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -423,7 +422,6 @@ class ComposerStaticInit9fcf2ccd39c9d0c3ffc7762061106836
         'App\\Models\\Devolucao' => __DIR__ . '/../..' . '/app/Models/Devolucao.php',
         'App\\Models\\Equipamentos' => __DIR__ . '/../..' . '/app/Models/Equipamentos.php',
         'App\\Models\\Funcoes' => __DIR__ . '/../..' . '/app/Models/Funcoes.php',
-        'App\\Models\\Manutencoes' => __DIR__ . '/../..' . '/app/Models/Manutencoes.php',
         'App\\Models\\Reservas' => __DIR__ . '/../..' . '/app/Models/Reservas.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Notifications\\ResetDeSenha' => __DIR__ . '/../..' . '/app/Notifications/ResetDeSenha.php',
@@ -432,6 +430,8 @@ class ComposerStaticInit9fcf2ccd39c9d0c3ffc7762061106836
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Repositories\\Contracts\\EquipamentosRepositoryInterface' => __DIR__ . '/../..' . '/app/Repositories/Contracts/EquipamentosRepositoryInterface.php',
+        'App\\Repositories\\EquipamentosRepositoryEloquent' => __DIR__ . '/../..' . '/app/Repositories/EquipamentosRepositoryEloquent.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',
@@ -4066,10 +4066,10 @@ class ComposerStaticInit9fcf2ccd39c9d0c3ffc7762061106836
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit9fcf2ccd39c9d0c3ffc7762061106836::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit9fcf2ccd39c9d0c3ffc7762061106836::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit9fcf2ccd39c9d0c3ffc7762061106836::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit9fcf2ccd39c9d0c3ffc7762061106836::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit4bf1798c958adc3ab4cdc288754ed29d::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit4bf1798c958adc3ab4cdc288754ed29d::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit4bf1798c958adc3ab4cdc288754ed29d::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit4bf1798c958adc3ab4cdc288754ed29d::$classMap;
 
         }, null, ClassLoader::class);
     }
