@@ -12,7 +12,7 @@ use App\Models\User;
 class DevolucaoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource. n
      *
      * @return \Illuminate\Http\Response
      */
