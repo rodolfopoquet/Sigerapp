@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'SIGER - Sistema Gerenciador de Reservas')
+@section('title', 'SIGER - Sistema Gerenciador de Reservas de Equipamentos')
 
 @section('content_header')
     <h1>Dashboard</h1>
@@ -8,7 +8,15 @@
 
 @section('content')
 
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
    
 <style>
   .uper {
@@ -16,11 +24,7 @@
   }
 </style>
 <div class="uper">
-  @if(session()->get('success'))
-    <div class="alert alert-success">
-      {{ session()->get('success') }}  
-    </div><br />
-  @endif
+
   <table class="table table-striped">
   <a href="{{ route('reservas.create')}}" class="btn btn-primary">Nova Reserva</a> <br><br>
     <thead>
@@ -46,12 +50,14 @@
 	         <td>{{$reservas->user->name}}</td>
             <td>{{$reservas->horario}}</td>
             <td>{{$reservas->dtagendamento}}</td>
+            @if($reservas->equipamentos)
             <td>{{$reservas->equipamentos->eqdescricao}} / {{$reservas->equipamentos->marca}}  / {{$reservas->equipamentos->modelo}} </td>
-            
+            @else
+            <td> --- </td>
+            @endif
 		
 
         
-         <td><a href="{{ route('reservas.edit',$reservas->id)}}" class="btn btn-primary">Editar</a></td>
             <td>
                 <form action="{{ route('reservas.destroy', $reservas->id)}}" method="post">
                   @csrf

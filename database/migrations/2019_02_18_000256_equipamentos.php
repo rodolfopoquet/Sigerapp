@@ -14,8 +14,9 @@ class Equipamentos extends Migration
     public function up()
     {
         Schema::create('equipamentos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('eqdescricao')->unique();
+            
+            $table->increments('id')->onDelete('cascade');
+            $table->text('eqdescricao');
             $table->string('marca');
             $table->string('modelo');
             $table->string('status');

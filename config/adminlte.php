@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'SIGER',
+    'title' => 'SIGER- Sistema Gerenciador de Reservas de Equipamentos',
 
     'title_prefix' => '',
 
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'purple-light',
+    'skin' => 'black',
 
     /*
     |--------------------------------------------------------------------------
@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'layout' => null,
+    'layout' =>'fixed',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,45 +108,43 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'MENU PRINCIPAL',
+       
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'Equipamentos',
+            'text'        => 'Cadastro de equipamentos',
             'url'         => '/equipamentos',
-            'icon'        => 'file',
+            'icon'        => 'edit',
             'label'       => '',
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Reservas',
+            'text'        => 'Reservas de equipamentos',
             'url'         => '/reservas',
-            'icon'        => 'file',
+            'icon'        => 'calendar-minus-o ',
             'label'       => '',
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Devolucao',
+            'text'        => 'Devoluções de equipamentos',
             'url'         => '/devolucao',
-            'icon'        => 'file',
+            'icon'        => 'refresh',
             'label'       => '',
             'label_color' => 'success',
         ],
-        'ACCOUNT SETTINGS',
+       
+        'INFORMAÇÕES DA CONTA',
+       
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
+            'text' => 'Cadastrar Usuários',
+            'url'  => '/novousuario/create',
             'icon' => 'user',
         ],
         [
-            'text' => 'Change Password',
+            'text' => 'Alterar dados cadastrais',
             'url'  => 'user/password',
             'icon' => 'lock',
         ],
-        [
+       /* [
             'text'    => 'Multilevel',
             'icon'    => 'share',
             'submenu' => [
@@ -184,7 +182,8 @@ return [
                 ],
             ],
         ],
-        'LABELS',
+        ],
+       'LABELS',
         [
             'text'       => 'Important',
             'icon_color' => 'red',
@@ -196,8 +195,9 @@ return [
         [
             'text'       => 'Information',
             'icon_color' => 'aqua',
-        ],
-    ],
+        ],*/
+    ] 
+    ,
 
     /*
     |--------------------------------------------------------------------------

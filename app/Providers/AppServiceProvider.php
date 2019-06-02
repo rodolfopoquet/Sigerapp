@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+       
+
+        \Illuminate\Support\Facades\Schema::defaultStringLength(191);
     }
 
     /**
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('App\Repositories\Contracts\EquipamentosRepositoryInterface', 'App\Repositories\EquipamentosRepositoryEloquent');
     }
 }

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'SIGER - Sistema Gerenciador de Reservas')
+@section('title', 'SIGER - Sistema Gerenciador de Reservas de Equipamentos')
 
 @section('content_header')
     <h1>Dashboard</h1>
@@ -8,7 +8,15 @@
 
 @section('content')
   
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <style>
   .uper {
     margin-top: 40px;
@@ -38,7 +46,7 @@
          
           <div class="form-group">
          <label for="horario">Horário:</label> 
-              <input type="time" id="horario"class="form-control" name="horario" >
+              <input type="time" id="horario"class="form-control" name="horario">
          </div>
           <div class="form-group">
               
@@ -58,7 +66,10 @@
                 'fkequipamentos',
                 $equipamentos->pluck('eqdescricao','id'),
                 old('fkequipamentos') ?? request()->get('fkequipamentos'),
-                ['class' => 'form-control']
+                [
+                'class' => 'form-control',
+                'required' => 'required'
+                ]
             )
         !!}
 

@@ -40,7 +40,7 @@
              {!!
             Form::select(
                 'fkreservas',
-                 $reservas->pluck('equipamentos.eqdescricao','id'),
+                 $equipamentos->pluck('eqdescricao','reservas.id'),
                 old('fkreservas') ?? request()->get('fkreservas'),
                 ['class' => 'form-control']
             )
@@ -64,6 +64,9 @@
 	  </div>
 	  <button type="submit" class="btn btn-primary">Incluir</button>
           <a href="{{ route('devolucao.index')}}" class="btn btn-primary">Voltar</a>
+      
+      
+      
       </form>
   </div>
 </div>

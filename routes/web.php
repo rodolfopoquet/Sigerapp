@@ -14,7 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Auth::routes();
+Auth::routes(['register'=>false]);
+Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware(['auth'])->group(function () {
 Route::resource('/equipamentos', 'EquipamentosController');
 Route::resource('/reservas', 'ReservasController');
@@ -22,6 +23,9 @@ Route::get('/home', 'HomeController@index');
 Route::get('user/password', 'UserController@password');
 Route::post('user/updatepassword', 'UserController@updatePassword');
 Route::resource('/devolucao', 'DevolucaoController');
-
+Route::resource('/novousuario', 'UserController');
 
 });
+
+
+
