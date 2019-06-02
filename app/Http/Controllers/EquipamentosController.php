@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Equipamentos;
+use App\Repositories\Contracts\EquipamentosRepositoryInterface;
 
 class EquipamentosController extends Controller
 {
@@ -11,10 +12,18 @@ class EquipamentosController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * 
+     * 
      */
+
+    public function __construct(EquipamentosRepositoryInterface $repo)
+    {
+            $this->repo=$repo;
+    }
+
     public function index()
     {  //Este método serve para exibição da tela de pricipal dos equipamentos cadastrados, onde será exibido por nome em ordem alfabética e decrescente
-        $equipamentos = Equipamentos::orderBy('eqdescricao','DESC')->get();
+        $equipamentos = $this->repo->all();
         return view('equipamentos.index', compact('equipamentos'));
 
         
