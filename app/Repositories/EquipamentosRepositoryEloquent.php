@@ -33,6 +33,9 @@ class EquipamentosRepositoryEloquent implements EquipamentosRepositoryInterface
 
     }
    
-   
+   public function save()
+   {
+       return $this->save();
+   }
 }
 

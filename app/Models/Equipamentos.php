@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 /**
  * Class Equipamentos
@@ -60,4 +60,7 @@ class Equipamentos extends Model
     {
         return $this->hasOne(Manutencoes::class,'fkequipamentos', 'id');
     }
+
+
+   
 }

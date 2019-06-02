@@ -114,7 +114,7 @@ class EquipamentosController extends Controller
                     e envia o alerta informando que  foi salvo com sucesso e também redireciona 
                     para a página de equipamentos
                     */
-                $equipamentos->save();
+                    $equipamentos = $this->repo->save();
                 alert()->success('Equipamento adicionado com sucesso');
                 return redirect('/equipamentos');
 
@@ -215,7 +215,7 @@ class EquipamentosController extends Controller
                 $equipamentos->codidentificacao   = $request->get ('codidentificacao');
                 $equipamentos->dt_aquisicao       = $request->get ('dt_aquisicao');
                
-                $equipamentos->save();
+                $equipamentos = $this->repo->save();
                 alert()->success('Equipamento atualizado com sucesso');
                 return redirect('/equipamentos');
               

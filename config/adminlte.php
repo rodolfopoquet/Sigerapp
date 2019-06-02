@@ -131,13 +131,7 @@ return [
             'label'       => '',
             'label_color' => 'success',
         ],
-        [
-            'text'        => 'Manutenção de equipamentos',
-            'url'         => '/manutencoes',
-            'icon'        => 'wrench',
-            'label'       => '',
-            'label_color' => 'success',
-        ],
+       
         'INFORMAÇÕES DA CONTA',
        
         [
