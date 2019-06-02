@@ -7,5 +7,6 @@ interface EquipamentosRepositoryInterface
 
     public function all();
     public function delete();
+    public function save();
     
 }

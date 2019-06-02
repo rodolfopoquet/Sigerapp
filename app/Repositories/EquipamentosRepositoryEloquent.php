@@ -19,7 +19,9 @@ class EquipamentosRepositoryEloquent implements EquipamentosRepositoryInterface
     
     public function  all()
     {
+        
         return $this->equipamentos->orderBy('eqdescricao','ASC')->get();
+        
 
     }
 
@@ -31,6 +33,11 @@ class EquipamentosRepositoryEloquent implements EquipamentosRepositoryInterface
 
     }
    
+
+    public function save(){
+
+        return $this->equipamentos->save();
+    }
 
 }
 
