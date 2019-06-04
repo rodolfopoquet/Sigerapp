@@ -23,7 +23,7 @@ class EquipamentosController extends Controller
 
     public function index()
     {  //Este método serve para exibição da tela de pricipal dos equipamentos cadastrados, onde será exibido por nome em ordem alfabética e decrescente
-        $equipamentos = $this->repo->all();
+        $equipamentos = $this->repo->getAll();
         return view('equipamentos.index', compact('equipamentos'));
 
         
@@ -37,7 +37,8 @@ class EquipamentosController extends Controller
     public function create()
     { //Este método serve para exibir a view de cadastro de equipamentos
         
-        return view('equipamentos.create');
+       
+       return view('equipamentos.create');
     }
 
     /**
@@ -98,7 +99,7 @@ class EquipamentosController extends Controller
 
 
 
-                $equipamentos =Equipamentos::create([
+                $equipamentos =$this->repo->create([
                   'eqdescricao'        => $request->get('eqdescricao'),
                   'marca'              => $request->get('marca'),
                   'modelo'             => $request->get('modelo'),
@@ -147,7 +148,7 @@ class EquipamentosController extends Controller
         
 
      */
-        $equipamentos = Equipamentos::find($id);
+        $equipamentos = $this->repo->getById($id);
 
         return view('equipamentos.edit', compact('equipamentos'));
     }
@@ -207,7 +208,7 @@ class EquipamentosController extends Controller
                 onde é feita uma busca pelo id do equipamento selecionado e gravadas novas as informações
                 */
              
-               $equipamentos = Equipamentos::find($id);
+               $equipamentos = $this->repo->getById($id);
                 $equipamentos->eqdescricao        = $request->get('eqdescricao');
                 $equipamentos->marca              = $request->get('marca');
                 $equipamentos->modelo             = $request->get('modelo');
@@ -235,16 +236,19 @@ class EquipamentosController extends Controller
      Este método verifica se o equiapamento está disponível para a remoção, 
      caso contrário o mesmo não será excluído
      */
+        
+
+        
+        //$equipamentos = Equipamentos::::whereStatus('Disponível')->find($id);
        
-        $equipamentos = Equipamentos::whereStatus('Disponível')->find($id);
-       
+        $equipamentos=$this->repo->getWithStatus($id);
       
         if(!$equipamentos){
             alert()->error('Equipamento não pode ser removido, pois está em utilização');
             return redirect('/equipamentos');
         }
 
-        $equipamentos->delete();
+        $equipamentos=$this->repo->delete($id);
 
         alert()->success('Equipamento excluido com sucesso');
 

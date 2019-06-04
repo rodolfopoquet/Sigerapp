@@ -17,7 +17,7 @@ class EquipamentosRepositoryEloquent implements EquipamentosRepositoryInterface
     }
     
     
-    public function  all()
+    public function  getAll()
     {
         
         return $this->equipamentos->orderBy('eqdescricao','ASC')->get();
@@ -25,13 +25,41 @@ class EquipamentosRepositoryEloquent implements EquipamentosRepositoryInterface
 
     }
 
-    public function delete()
-    {
-     
-        return $this->equipamentos->delete();
-     
+     public function getById($id)
+     {
+        return  $this->equipamentos->find($id);
 
-    }
+     }
+    
+     public function create(array $attributes)
+     {
+
+        return $this->equipamentos->create($attributes);
+     }
+
+     public function update($id, array $attributes)
+     {
+         $equipamentos=$this->findOrFails($id);
+         $equipamentos->update($attributes);
+         return $equiapamentos;
+
+     }
+     
+     public function delete($id)
+     {
+        $this->getById($id)->delete();
+        return true;
+
+     }
+
+     public function getWithStatus($id)
+     {
+        return $this->equipamentos->whereStatus('Disponível')->find($id);
+     }
+    
+    
+
+        
    
 }
 
