@@ -49,8 +49,8 @@ class UserController extends Controller
             'name'      =>'required',
             'email'     => 'required|email|unique:users',
             'password'  => 'required|confirmed|min:6|max:18',
-            'matricula' =>'required|unique:users',
-            'telefone'  =>'required|min:10|max:11|unique:users',
+            'matricula' =>'required|numeric|unique:users',
+            'telefone'  =>'required|numeric|min:10|max:11|unique:users',
             
         ],[
              /*
@@ -70,7 +70,9 @@ class UserController extends Controller
             'telefone.unique'=>'Este telefone já está cadastrado',
             'telefone.min'=>'O número de telefone deve ter no mínimo 10 digitos',
             'telefone.max'=>'O número de telefone deve ter no máximo 11 digitos',
+            'telefone.numeric'=>'Número de telefone inválido',
             'matricula.required'=>'É obrigatório inserir o número de matricula',
+            'matricula.numeric'=>'Número de matricula inválido'
            
 
 
@@ -162,10 +164,11 @@ class UserController extends Controller
 
         $rules = [
             'mypassword' => 'required',
-            'password' => 'required|confirmed|min:6|max:18',
-            'telefone'  =>'required|min:10|max:11',
-            'name'      =>'required',
-            'email'     => 'required|email',
+            'password'   => 'required|confirmed|min:6|max:18',
+            'telefone'   =>'required|numeric|min:10|max:11',
+            'name'       =>'required',
+            'email'      => 'required|email',
+            'matricula'  => 'required|numeric'
             
             
         ];
@@ -186,10 +189,12 @@ class UserController extends Controller
             'telefone.unique'=>'Este telefone já está cadastrado',
             'telefone.min'=>'O número de telefone deve ter no mínimo 10 digitos',
             'telefone.max'=>'O número de telefone deve ter no máximo 11 digitos',
+            'telefone.numeric'=>'Número de telefone inválido',
             'matricula.required'=>'É obrigatório inserir o número de matricula',
             'name.required' => 'O preenchimento do campo nome é obrigatório',
             'email.unique'=>'Este e-mail já está cadastrado',
             'email.required'=>'É obrigatório o preenchimento com um e-mail válido',
+            'matricula.numeric'=>'Número de matricula inválido'
            
         ];
         

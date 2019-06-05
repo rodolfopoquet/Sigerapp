@@ -125,6 +125,13 @@ return [
             'label_color' => 'success',
         ],
         [
+            'text'        => 'Confirmar reservas',
+            'url'         => '/confirmar',
+            'icon'        => 'check',
+            'label'       => '',
+            'label_color' => 'success',
+        ],
+        [
             'text'        => 'Devoluções de equipamentos',
             'url'         => '/devolucao',
             'icon'        => 'refresh',

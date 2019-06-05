@@ -53,7 +53,7 @@
 		 <div class="form-group">
 			<label for="dt_aquisicao">Data de aquisição do equipamento:</label>
 			{!!
-				Form::date('dt_aquisicao', \Carbon\Carbon::now(),['class' => 'form-control']);
+				Form::date('dt_aquisicao',\Carbon\Carbon::now(),['class' => 'form-control']);
 
                         !!}		
 	

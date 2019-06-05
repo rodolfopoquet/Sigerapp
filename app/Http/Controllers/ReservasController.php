@@ -162,7 +162,32 @@ class ReservasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+   public function confirmar()
+   {
+    $reservas =  $this->repore->getAll();
+     return view('reservas.confirmar',compact('reservas'));
+
+   }
+   
+   public function confirmarreservas($id)
+   {
+    $reservas =$this->repore->getById($id);
+
+    
+    if($reservas){
+        $equipamento = $this->repo->getById($reservas->fkequipamentos);
+
+        $equipamento->status = 'Reservado';
+        $equipamento->save();
+
+    }
+    
+    alert()->success('Reserva  confirmada com sucesso');
+    return redirect('/reservas');
+
+   }
+   
+     public function destroy($id)
     {
         
         /*
