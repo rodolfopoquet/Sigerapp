@@ -11,6 +11,7 @@ interface EquipamentosRepositoryInterface
     public function  update($id, array $atributes);
     public function  delete($id);
     public function  getWithStatus($id);
-    public function getStatus();
+    public function  getStatus();
+    public function  getIdentifyEquipamentos();
     
 }

@@ -64,7 +64,10 @@ class EquipamentosRepositoryEloquent implements EquipamentosRepositoryInterface
     {
       return $this->equipamentos->disponivel()->get();
     }
-
+    public function getIdentifyEquipamentos()
+    {
+     return $this->equipamentos->has('reservas')->disponivel(false)->get();
+    }
         
    
 }
