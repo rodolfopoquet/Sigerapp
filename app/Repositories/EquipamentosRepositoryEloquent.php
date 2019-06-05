@@ -3,6 +3,7 @@
 
 namespace App\Repositories;
 use App\Models\Equipamentos;
+use App\Models\Reservas;
 use App\Repositories\Contracts\EquipamentosRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,8 @@ class EquipamentosRepositoryEloquent implements EquipamentosRepositoryInterface
         $this->equipamentos=$equipamentos;
 
     }
+
+    
     
     
     public function  getAll()
@@ -57,7 +60,10 @@ class EquipamentosRepositoryEloquent implements EquipamentosRepositoryInterface
         return $this->equipamentos->whereStatus('Disponível')->find($id);
      }
     
-    
+    public function getStatus()
+    {
+      return $this->equipamentos->disponivel()->get();
+    }
 
         
    
