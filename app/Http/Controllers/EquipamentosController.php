@@ -58,7 +58,7 @@ class EquipamentosController extends Controller
        
        
         $request->validate([
-             'eqdescricao'          => 'required|max:30|unique:equipamentos',
+             'eqdescricao'          => 'required|string|max:30|unique:equipamentos',
              'marca'                => 'required|:max:30',
              'modelo'               => 'required|:max:30',
              'status'               => 'required',
@@ -176,7 +176,7 @@ class EquipamentosController extends Controller
 
     {
         $request->validate([
-            'eqdescricao'           => 'required|max:30',
+            'eqdescricao'           => 'required|string|max:30',
             'marca'                 => 'required|max:30',
             'modelo'                => 'required|max:30',
             'status'                => 'required',

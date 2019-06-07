@@ -51,7 +51,7 @@
 
                </div>
 	      <label for="datadev">Data da devolucao:</label>
-              <input type="date" id="datadev" class="form-control" name="datadev" value="{{date('d/m/y')}}" />
+              <input type="date" id="datadev" class="form-control" name="datadev"  />
           </div>
 	      <div class="form-group">
  		<label for="horadev">Hora da devolução:</label>

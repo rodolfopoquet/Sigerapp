@@ -27,31 +27,31 @@
     {{csrf_field()}}
             <div class="form-group">
                 <label for="name">Nome:</label>
-                <input type="text" name="name" class="form-control">
+                <input type="text" name="name" class="form-control" value="{{old('name')}}"/>
             </div>
 
             <div class="form-group">
                 <label for="matricula">Matricula:</label>
-                <input type="text" name="matricula" class="form-control">
+                <input type="text" name="matricula" class="form-control" value="{{old('matricula')}}"/>
             </div>
 
            
             <div class="form-group">
                 <label for="email">E-mail:</label>
-                <input type="email" name="email" class="form-control">
+                <input type="email" name="email" class="form-control" value="{{old('email')}}"/>
             </div>
             <div class="form-group">
                 <label for="telefone">Telefone:</label>
-                <input type="text" name="telefone" class="form-control">
+                <input type="text" name="telefone" class="form-control" value="{{old('telefone')}}"/>
             </div>
 
             <div class="form-group">
                 <label for="mypassword">Senha Atual:</label>
-                <input type="password" name="mypassword" class="form-control">
+                <input type="password" name="mypassword" class="form-control" value="{{old('mypassword')}}"/>
             </div>
             <div class="form-group">
                 <label for="password">Nova Senha:</label>
-                <input type="password" name="password" class="form-control">
+                <input type="password" name="password" class="form-control" value="{{old('password)}}"/>
             </div>
                 
             <div class="form-group">
