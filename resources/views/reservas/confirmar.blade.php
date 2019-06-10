@@ -64,11 +64,10 @@
 
         
             <td>
-                <form action="{{ route('reservas.destroy', $reservas->id)}}" method="post">
+                
                   @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" onclick="return confirm('Tem certeza que deseja cancelar a reserva?')" type="submit">Cancelar</button>
-                </form>
+                  <button type="submit" class="btn btn-primary">Confirmar reservas</button>
+               
             </td>
         </tr>
         @endforeach

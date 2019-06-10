@@ -169,18 +169,14 @@ class ReservasController extends Controller
 
    }
    
-   public function confirmarreservas($id)
+   public function confirmarreservas(Request $request)
    {
-    $reservas =$this->repore->getById($id);
-
     
-    if($reservas){
-        $equipamento = $this->repo->getById($reservas->fkequipamentos);
-
-        $equipamento->status = 'Reservado';
-        $equipamento->save();
-
-    }
+   
+    
+   
+   
+    
     
     alert()->success('Reserva  confirmada com sucesso');
     return redirect('/reservas');

@@ -22,6 +22,7 @@ Route::resource('/reservas', 'ReservasController');
 Route::get('/home', 'HomeController@index');
 Route::get('user/password', 'UserController@password');
 Route::get('confirmar','ReservasController@confirmar')->name('reservas.confirmar');
+Route::post('confirmarreservas', 'ReservasController@confirmarreservas')->name('reservas.confirmarreservas');
 Route::post('user/updatepassword', 'UserController@updatePassword');
 Route::resource('/devolucao', 'DevolucaoController');
 Route::resource('/novousuario', 'UserController');

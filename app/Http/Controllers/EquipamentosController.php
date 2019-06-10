@@ -208,7 +208,7 @@ class EquipamentosController extends Controller
                 onde é feita uma busca pelo id do equipamento selecionado e gravadas novas as informações
                 */
              
-               $equipamentos = $this->repo->getById($id);
+                $equipamentos = $this->repo->getById($id);
                 $equipamentos->eqdescricao        = $request->get('eqdescricao');
                 $equipamentos->marca              = $request->get('marca');
                 $equipamentos->modelo             = $request->get('modelo');
