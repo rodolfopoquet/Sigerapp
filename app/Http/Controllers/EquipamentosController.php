@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Equipamentos;
 use App\Repositories\Contracts\EquipamentosRepositoryInterface;
+use PDF;
 
 class EquipamentosController extends Controller
 {
@@ -255,6 +256,14 @@ class EquipamentosController extends Controller
         return redirect('/equipamentos');
     }
 
-    
+    public function generatePDF()
+
+    {
+        
+        $equipamentos=Equipamentos::all();
+        $pdf = PDF::loadView('equipamentos/equipamentosPDF', compact('equipamentos'));
+        return $pdf->download('equipamentos.pdf');
+
+    }
    
 }

@@ -21,7 +21,7 @@ class Reservas extends Model
         'fkequipamentos',
         'user_id',
         'dtagendamento',
-        'horario'
+        'turno'
 
 
     ];

@@ -45,8 +45,15 @@
          
          
           <div class="form-group">
-         <label for="horario">Horário:</label> 
-              <input type="time" id="horario"class="form-control" name="horario">
+         <label for="turno">Turno:</label> 
+         {!!
+                  Form::select('turno',[
+                                 'Manhã' =>'Manhã',
+                              	  'Tarde' =>'Tarde'  ,
+                                  'Noite' =>'Manhã',
+                                ],
+                               ['placeholder' => ''], ['class' => 'form-control'],);
+         !!}
          </div>
           <div class="form-group">
               

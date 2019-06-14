@@ -88,7 +88,7 @@ class DevolucaoController extends Controller
           $equipamentos = $this->repoeq->getById($devolucao->reservas->fkequipamentos);
           $equipamentos->status='Disponível';
           $equipamentos->save();       
-          $devolucao->save();
+         // $devolucao->save();
            alert()->success('Equipamento devolvido com sucesso');
            return redirect('/devolucao');
        

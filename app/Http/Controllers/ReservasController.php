@@ -79,7 +79,7 @@ class ReservasController extends Controller
         $request->validate([
             'fkequipamentos'          => 'required',
             'dtagendamento'           => 'required|date',
-            'horario'                 => 'required',
+            'turno'                   => 'required',
         ],
     
         [
@@ -92,7 +92,7 @@ class ReservasController extends Controller
 
             'fkequipamentos.required'=>'Selecione um equipamento para reservar o equipamento',
             'dtagendamento.required'=>'Selecione uma data para reservas o equipamento',
-            'horario.required'=>'Insira a hora desejada para reservar o equiapamento',
+            'turno.required'=>'Selecione o turno desejado para reserva',
         ]
        
     
@@ -109,7 +109,7 @@ class ReservasController extends Controller
             'fkequipamentos'           => $request->get('fkequipamentos'),
             'user_id'                  => auth()->user()->id,
             'dtagendamento'            => $request->get('dtagendamento'),
-            'horario'                  => $request->get('horario'),
+            'turno'                  => $request->get('turno'),
         ]);
         
           /* 
@@ -169,13 +169,13 @@ class ReservasController extends Controller
 
    }
    
-   public function confirmarreservas(Request $request)
+   public function confirmarreservas($id)
    {
     
-   
-    
-   
-   
+    $reservas= $this->repore->getById($id);
+    dd($reservas);
+
+
     
     
     alert()->success('Reserva  confirmada com sucesso');

@@ -31,9 +31,10 @@
         <tr>
           
           <td><b>Solicitante:</b></td>
-          <td><b>Horário de agendamento:</b></td>
+          <td><b>Turno de agendamento:</b></td>
           <td><b>Data de agendamento:</b></td>    
           <td><b>Equipamento/ Marca/ Modelo:</b></td>
+          <td><b>Status</td></b>
          
 	       
 	   
@@ -48,14 +49,14 @@
             
                   
 	         <td>{{$reservas->user->name}}</td>
-            <td>{{$reservas->horario}}</td>
+           <td>{{$reservas->turno}}</td>
             <td>{{$reservas->dtagendamento}}</td>
             @if($reservas->equipamentos)
             <td>{{$reservas->equipamentos->eqdescricao}} / {{$reservas->equipamentos->marca}}  / {{$reservas->equipamentos->modelo}} </td>
             @else
             <td> --- </td>
             @endif
-		
+            <td>{{$reservas->status}}</td>
 
         
             <td>
