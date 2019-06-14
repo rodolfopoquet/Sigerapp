@@ -26,7 +26,7 @@ Route::post('confirmarreservas', 'ReservasController@confirmarreservas')->name('
 Route::post('user/updatepassword', 'UserController@updatePassword');
 Route::resource('/devolucao', 'DevolucaoController');
 Route::resource('/novousuario', 'UserController');
-Route::get('generate-pdf','EquipamentosController@generatePDF');
+Route::get('eq-pdf','EquipamentosController@generatePDF');
 
 });
 

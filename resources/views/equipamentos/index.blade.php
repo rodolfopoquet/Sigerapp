@@ -17,9 +17,17 @@
 
   <table class="table table-striped">
   <a href="{{ route('equipamentos.create')}}" class="btn btn-primary">Novo equipamento</a><br><br>
+    
+    
+    <div class="container">
+        {!! $equipamentos->render() !!}
+   </div>
+    
+
+   
     <thead>
         <tr>
-          
+        
           <td><b>Tipo de equipamento:</b></td>
           <td><b>Marca:</b></td>
           <td><b>Modelo:</b></td>         
@@ -42,6 +50,7 @@
             <td>{{$equipamentos->dt_aquisicao}}</td>
             <td>{{$equipamentos->status}} </td>
             
+          
 		
             
             
@@ -57,6 +66,10 @@
         @endforeach
     </tbody>
   </table>
+
 <div>
 
+<div align="right">
+  <a href="eq-pdf" class="btn btn-primary">Exportar lista para pdf</a> 
+</div>
 @stop

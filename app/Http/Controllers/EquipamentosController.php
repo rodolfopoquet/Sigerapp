@@ -59,9 +59,9 @@ class EquipamentosController extends Controller
        
        
         $request->validate([
-             'eqdescricao'          => 'required|string|max:30|unique:equipamentos',
-             'marca'                => 'required|:max:30',
-             'modelo'               => 'required|:max:30',
+             'eqdescricao'          => 'required|string|max:20|unique:equipamentos',
+             'marca'                => 'required|:max:20',
+             'modelo'               => 'required|:max:20',
              'status'               => 'required',
              'codidentificacao'     => 'required|unique:equipamentos|max:30',
              'dt_aquisicao'         => 'required|date',
@@ -81,9 +81,10 @@ class EquipamentosController extends Controller
             'modelo.required'=>'O campo modelo deve ser preenchido obrigatóriamente',
             'codidentificacao.required'=>'O campo de número de série deve ser preenchido obrigatóriamente',
             'codidentificacao.unique'=>'O campo número de série é único',
-            'eqdescricao.max'=>'É permitido no máximo 30 digitos',
+            'codidentificacao.max'=>'Número de série deve ter o máximo de 20 dígitos',
+            'eqdescricao.max'=>'É tipo de equipamento deve ter o máximo 20 digitos',
             'eqdescricao.unique'=>'Não é permitido cadastrar tipos de equipamentos iguais',
-            'modelo.max'=>'É permitido no máximo 30 dígitos',
+            'modelo.max'=>'O modelo do equipamento deve ter máximo 20 dígitos',
                    
             ]
     
@@ -260,8 +261,8 @@ class EquipamentosController extends Controller
 
     {
         
-        $equipamentos=Equipamentos::all();
-        $pdf = PDF::loadView('equipamentos/equipamentosPDF', compact('equipamentos'));
+        $equipamentos=$this->repo->getAll();
+        $pdf = PDF::loadView('equipamentos/equipamentosPDF',['equipamentos'=> $equipamentos])->setPaper('a4', 'landscape');
         return $pdf->download('equipamentos.pdf');
 
     }
