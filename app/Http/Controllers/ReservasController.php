@@ -7,6 +7,7 @@ use App\Models\Reservas;
 use App\Models\Equipamentos;
 use App\Repositories\Contracts\EquipamentosRepositoryInterface;
 use App\Repositories\Contracts\ReservasRepositoryInterface;
+use PDF;
 
 
 /**
@@ -109,7 +110,7 @@ class ReservasController extends Controller
             'fkequipamentos'           => $request->get('fkequipamentos'),
             'user_id'                  => auth()->user()->id,
             'dtagendamento'            => $request->get('dtagendamento'),
-            'turno'                  => $request->get('turno'),
+            'turno'                    => $request->get('turno'),
         ]);
         
           /* 
@@ -162,27 +163,7 @@ class ReservasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   public function confirmar()
-   {
-    $reservas =  $this->repore->getAll();
-     return view('reservas.confirmar',compact('reservas'));
-
-   }
-   
-   public function confirmarreservas($id)
-   {
-    
-    $reservas= $this->repore->getById($id);
-    dd($reservas);
-
-
-    
-    
-    alert()->success('Reserva  confirmada com sucesso');
-    return redirect('/reservas');
-
-   }
-   
+  
      public function destroy($id)
     {
         
@@ -205,4 +186,16 @@ class ReservasController extends Controller
         return redirect('/reservas');
     }
    
+    public function generatePDF()
+
+    {
+        
+        $reservas=$this->repore->getAll();
+        $pdf = PDF::loadView('reservas/reservaPDF',['reservas'=> $reservas])->setPaper('a4', 'landscape');
+        return $pdf->download('reservas.pdf');
+
+    }
+
+
+
 }

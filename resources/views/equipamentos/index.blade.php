@@ -21,7 +21,7 @@
     
     <div class="container">
         {!! $equipamentos->render() !!}
-   </div>
+    </div>
     
 
    
