@@ -17,7 +17,7 @@
 <font size="15"><b>SIG</b>ER- Sistema Gerenciador de Reservas</font>
 <hr>
 
- <center><h1>Reservas solicitadas</h1></center>
+ <center><h1>Equipamentos devolvidos</h1></center>
 
 	<table width="auto" border="1px" align='center'>
     <thead>
