@@ -72,7 +72,7 @@
   </table>
 </div>
 <div align="right">
-  <a href="eq-pdf" class="btn btn-primary">Exportar lista para pdf</a> 
+  <a href="re-pdf" class="btn btn-primary">Exportar lista para pdf</a> 
 </div>
 
 @stop
