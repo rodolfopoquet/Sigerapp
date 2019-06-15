@@ -28,7 +28,7 @@
 
           <td><b>Recebido por:</b></td>
           <td><b>Solicitado por:</b></td>
-          <td><b>Equipamentos/Marca/No. de série</b></td>
+          <td><b>Equipamentos/Marca/No. de série:</b></td>
           <td><b>Hora da devolução:</b></td>
           <td><b>Data da reserva:<b></td>
           <td><b>Data da devolução:</b></td>

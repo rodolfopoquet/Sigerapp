@@ -29,6 +29,7 @@ Route::resource('/devolucao', 'DevolucaoController');
 Route::resource('/novousuario', 'UserController');
 Route::get('eq-pdf','EquipamentosController@generatePDF');
 Route::get('re-pdf','ReservasController@generatePDF');
+Route::get('de-pdf','DevolucaoController@generatePDF');
 
 });
 

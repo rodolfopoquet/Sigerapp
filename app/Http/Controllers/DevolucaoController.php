@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Repositories\Contracts\EquipamentosRepositoryInterface;
 use App\Repositories\Contracts\ReservasRepositoryInterface;
 use App\Repositories\Contracts\DevolucaoRepositoryInterface;
+use PDF;
 
 class DevolucaoController extends Controller
 {
@@ -139,6 +140,15 @@ class DevolucaoController extends Controller
         //
     }
 
-    
+    public function generatePDF()
+
+    {
+        
+        $devolucao=$this->repo->getAll();
+        $pdf = PDF::loadView('devolucao/devolucaoPDF',['devolucao'=> $devolucao])->setPaper('a4', 'landscape');
+        return $pdf->download('devolucao.pdf');
+
+    }
+   
 }
 
