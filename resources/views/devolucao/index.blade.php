@@ -62,6 +62,8 @@
         @endforeach
     </tbody>
   </table>
-<div>
-
+</div>
+<div align="right">
+  <a href="de-pdf" class="btn btn-primary">Exportar lista para pdf</a> 
+</div>
 @stop
