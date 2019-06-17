@@ -58,7 +58,8 @@ class DevolucaoController extends Controller
      */
     public function store(Request $request)
     {
-      //Este método serve para guardar o registro de devolução, onde é passado por um array de validação para certificar que as informações apresentadas estão de acordo com as regras impostas no sistema
+      
+        //Este método serve para guardar o registro de devolução, onde é passado por um array de validação para certificar que as informações apresentadas estão de acordo com as regras impostas no sistema
         $request->validate( [
             'fkreservas'           => 'required',         
             'obs'                  => 'required|max:190',
@@ -71,6 +72,7 @@ class DevolucaoController extends Controller
            
             'horadev.required'=> 'O campo hora de devolução deve ser preenchido obrigatóriamente',
             'obs.required'=> 'O campo observações deve ser preenchido obrigatóriamente',
+            
 
         ]
       

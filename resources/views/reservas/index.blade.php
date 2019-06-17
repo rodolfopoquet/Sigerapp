@@ -56,7 +56,7 @@
                   
 	          <td align="justify">{{$reservas->user->name}}</td>
             <td align="center">{{$reservas->turno}}</td>
-            <td align="center">{{$reservas->dtagendamento}}</td>
+            <td align="center">{{ date( 'd/m/Y' , strtotime($reservas->dtagendamento))}}</td>
             <td align="center">{{$reservas->equipamentos->eqdescricao}} / {{$reservas->equipamentos->marca}}  / {{$reservas->equipamentos->modelo}} </td>
                              
             <td>

@@ -62,9 +62,9 @@ class EquipamentosController extends Controller
              'eqdescricao'          => 'required|string|max:20|unique:equipamentos',
              'marca'                => 'required|:max:20',
              'modelo'               => 'required|:max:20',
-             'status'               => 'required',
              'codidentificacao'     => 'required|unique:equipamentos|max:30',
              'dt_aquisicao'         => 'required|date',
+             'etiqueta'             => 'required|numeric',
             
         ],
         
@@ -83,9 +83,10 @@ class EquipamentosController extends Controller
             'codidentificacao.unique'=>'O campo número de série é único',
             'codidentificacao.max'=>'Número de série deve ter o máximo de 20 dígitos',
             'eqdescricao.max'=>'É tipo de equipamento deve ter o máximo 20 digitos',
-            'eqdescricao.unique'=>'Não é permitido cadastrar tipos de equipamentos iguais',
+            'eqdescricao.unique'=>'Não é permitido cadastrar nomes de equipamentos iguais',
             'modelo.max'=>'O modelo do equipamento deve ter máximo 20 dígitos',
-                   
+            'etiqueta.required'=> "Insira o número de equiqueta para cadastrar o equipamento",
+            'etiqueta.numeric'=>'Somente é permitida a inserção de números inteiros no campo etiqueta',
             ]
     
          
@@ -105,9 +106,9 @@ class EquipamentosController extends Controller
                   'eqdescricao'        => $request->get('eqdescricao'),
                   'marca'              => $request->get('marca'),
                   'modelo'             => $request->get('modelo'),
-                  'status'             => $request->get('status'),
                   'codidentificacao'   => $request->get('codidentificacao'),
                   'dt_aquisicao'       => $request->get('dt_aquisicao'),
+                  'etiqueta'           => $request->get('etiqueta'),
                   
                  
                 ]);
@@ -184,6 +185,7 @@ class EquipamentosController extends Controller
             'status'                => 'required',
             'codidentificacao'      => 'required|max:30',
             'dt_aquisicao'          => 'required|date',
+           
             
                  
         ],
@@ -214,10 +216,12 @@ class EquipamentosController extends Controller
                 $equipamentos->eqdescricao        = $request->get('eqdescricao');
                 $equipamentos->marca              = $request->get('marca');
                 $equipamentos->modelo             = $request->get('modelo');
-                $equipamentos->status              = $request->get('status');
+                $equipamentos->status             = $request->get('status');
                 $equipamentos->codidentificacao   = $request->get ('codidentificacao');
                 $equipamentos->dt_aquisicao       = $request->get ('dt_aquisicao');
-               
+                $equipamentos->etiqueta           =$request->get('etiqueta');
+                
+                
                 $equipamentos->save();
                 alert()->success('Equipamento atualizado com sucesso');
                 return redirect('/equipamentos');

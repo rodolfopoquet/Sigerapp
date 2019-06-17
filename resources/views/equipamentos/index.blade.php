@@ -28,7 +28,8 @@
     <thead>
         <tr>
         
-          <td><b>Tipo de equipamento:</b></td>
+          <td><b>Nome do equipamento:</b></td>
+          <td><b>Etiqueta:</b></td>
           <td><b>Marca:</b></td>
           <td><b>Modelo:</b></td>         
           <td><b>Numero de série:</b></td>    
@@ -44,13 +45,13 @@
         <tr>
             
 	          <td>{{$equipamentos->eqdescricao}}</td>
+            <td>{{$equipamentos->etiqueta}}</td>
             <td>{{$equipamentos->marca}}</td>
             <td>{{$equipamentos->modelo}}</td>
             <td>{{$equipamentos->codidentificacao}}</td>
-            <td>{{$equipamentos->dt_aquisicao}}</td>
+            <td>{{ date( 'd/m/Y' , strtotime($equipamentos->dt_aquisicao))}}</td>
             <td>{{$equipamentos->status}} </td>
             
-          
 		
             
             

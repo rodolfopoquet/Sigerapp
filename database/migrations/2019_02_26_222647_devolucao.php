@@ -15,7 +15,7 @@ class Devolucao extends Migration
     {
         Schema::create('devolucao', function (Blueprint $table) {
             
-            $table->increments('id')->onDelete('cascade');
+            $table->increments('id');
             $table->integer('fkreservas')->unsigned();
             $table->foreign('fkreservas')->references('id')->on('reservas')->onDelete('cascade');
             $table->integer('user_id')->unsigned();

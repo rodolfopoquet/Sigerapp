@@ -6,6 +6,11 @@
     <h1>Dashboard</h1>
 @stop
 
+
+
+
+
+
 @section('content')
     
 
@@ -42,7 +47,7 @@
                 'fkreservas',
                  $equipamentos->pluck('eqdescricao','reservas.id'),
                 old('fkreservas') ?? request()->get('fkreservas'),
-                ['class' => 'form-control']
+                ['placeholder'=>'Selecione o equipamento', 'class' => 'form-control']
             )
         !!}
 
@@ -51,7 +56,10 @@
 
                </div>
 	      <label for="datadev">Data da devolucao:</label>
-              <input type="date" id="datadev" class="form-control" name="datadev"  />
+        {!!
+				Form::date('datadev','',['class' => 'form-control']);
+
+              !!}
           </div>
 	      <div class="form-group">
  		<label for="horadev">Hora da devolução:</label>
@@ -60,9 +68,9 @@
 
      <div class="form-group">
  		<label for="obs">Observações:</label>
-        	<input type="textarea" id="obs" class="form-control" name="obs"/>
+        	<textarea id="obs" class="form-control" name="obs"></textarea>
 	  </div>
-	  <button type="submit" class="btn btn-primary">Incluir</button>
+	  <button type="submit" class="btn btn-primary">Confirmar</button>
           <a href="{{ route('devolucao.index')}}" class="btn btn-primary">Voltar</a>
       
       

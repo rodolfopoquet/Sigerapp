@@ -29,8 +29,9 @@
   
     
     <form method="post" action="{{ route('novousuario.store') }}">
+        @csrf
           <div class="form-group">
-              @csrf
+              
               <label for="name">Nome:</label>
               <input type="text" class="form-control" name="name" value="{{old('name')}}"/>
           </div>
@@ -46,7 +47,7 @@
 
           <div class="form-group">
               <label for="telefone">Telefone :</label>
-              <input type="number" class="form-control" name="telefone" value="{{old('telefone')}}"/>
+              <input type="number" class="form-control" name="telefone" data-mask="(00) 0000-0000" data-mask-selectonfocus="true" value="{{old('telefone')}}"/>
           </div>
           <div class="form-group">
               <label for="password">Senha:</label>

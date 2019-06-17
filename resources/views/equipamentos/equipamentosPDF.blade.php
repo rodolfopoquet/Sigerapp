@@ -23,12 +23,13 @@
     <thead>
         <tr>
           
-          <td width="101" height="40" align="justify"><b>Tipo de equipamento:</b></td>
-          <td width="101" height="40" align="justify"><b>Marca:</b></td>
-          <td width="101" height="40" align="justify"><b>Modelo:</b></td>         
-          <td width="101" height="40" align="justify"><b>Numero de série:</b></td>    
-          <td width="101" height="40" align="justify"><b>Data de aquisição:</b></td>
-          <td width="101" height="40" align="justify"><b>Status:</b></td>
+          <td width="101" height="40" align="center"><b>Nome do equipamento:</b></td>
+          <td width="101" height="40" align="center"><b>Etiqueta:</b></td>
+          <td width="101" height="40" align="center"><b>Marca:</b></td>
+          <td width="101" height="40" align="center"><b>Modelo:</b></td>         
+          <td width="101" height="40" align="center"><b>Numero de série:</b></td>    
+          <td width="101" height="40" align="center"><b>Data de aquisição:</b></td>
+          <td width="101" height="40" align="center"><b>Status:</b></td>
          
 	   
           
@@ -38,12 +39,13 @@
             @foreach($equipamentos as $equipamentos)
             <tr>
             
-	            <td width="101" height="40" align="justify">{{$equipamentos->eqdescricao}}</td>
-                <td width="101" height="40" align="justify">{{$equipamentos->marca}}</td>
-                <td width="101" height="40" align="justify">{{$equipamentos->modelo}}</td>
-                <td width="101" height="40" align="justify">{{$equipamentos->codidentificacao}}</td>
-                <td width="101" height="40" align="justify">{{$equipamentos->dt_aquisicao}}</td>
-                <td width="101" height="40" align="justify">{{$equipamentos->status}} </td>
+	            <td width="101" height="40" align="center">{{$equipamentos->eqdescricao}}</td>
+                <td width="101" height="40" align="center">{{$equipamentos->etiqueta}}</td>
+                <td width="101" height="40" align="center">{{$equipamentos->marca}}</td>
+                <td width="101" height="40" align="center">{{$equipamentos->modelo}}</td>
+                <td width="101" height="40" align="center">{{$equipamentos->codidentificacao}}</td>
+                <td width="101" height="40" align="center">{{ date( 'd/m/Y' , strtotime($equipamentos->dt_aquisicao))}}</td>
+                <td width="101" height="40" align="center">{{$equipamentos->status}} </td>
 
             </tr>
             @endforeach

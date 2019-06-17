@@ -18,6 +18,7 @@ class Reservas extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
         'fkequipamentos',
         'user_id',
         'dtagendamento',

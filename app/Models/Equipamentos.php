@@ -16,12 +16,14 @@ class Equipamentos extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
         'eqdescricao',
         'marca',
         'modelo',
         'status',
         'codidentificacao',
         'dt_aquisicao',
+        'etiqueta',
 
     ];
     /**

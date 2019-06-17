@@ -46,10 +46,13 @@
             <td>{{$devolucoes->reservas->user->name}}</td>
             <td>{{$devolucoes->reservas->equipamentos->eqdescricao}} /{{$devolucoes->reservas->equipamentos->marca}} / {{$devolucoes->reservas->equipamentos->codidentificacao}}</td>
             <td>{{$devolucoes->horadev}}</td>
-            <td>{{$devolucoes->reservas->dtagendamento}}
-            <td>{{$devolucoes->datadev}}</td>
+            <td>{{ date( 'd/m/Y' , strtotime($devolucoes->reservas->dtagendamento))}}</td>
+            <td>{{ date( 'd/m/Y' , strtotime($devolucoes->datadev))}}</td>
             <td>{{$devolucoes->obs}}</td>
 
+            
+            
+            
             </tr>
             @endforeach
     </tbody>

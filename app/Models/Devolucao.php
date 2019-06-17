@@ -9,6 +9,7 @@ class Devolucao extends Model
 {
    
     protected $fillable = [
+        'id',
         'fkreservas',
         'fk_id',
         'user_id',

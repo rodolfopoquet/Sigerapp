@@ -8,15 +8,6 @@
 
 @section('content')
   
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
     <style>
   .uper {
     margin-top: 40px;
@@ -48,9 +39,9 @@
          <label for="turno">Turno:</label> 
          {!!
                   Form::select('turno',[
-                                 'Manhã' =>'Manhã',
+                                  'Manhã' =>'Manhã',
                               	  'Tarde' =>'Tarde'  ,
-                                  'Noite' =>'Manhã',
+                                  'Noite' =>'Noite',
                                 ],
                                ['placeholder' => ''], ['class' => 'form-control'],);
          !!}

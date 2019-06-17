@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'green',
+    'skin' => 'blue-light',
 
     /*
     |--------------------------------------------------------------------------
@@ -121,13 +121,6 @@ return [
             'text'        => 'Reservas de equipamentos',
             'url'         => '/reservas',
             'icon'        => 'calendar-minus-o ',
-            'label'       => '',
-            'label_color' => 'success',
-        ],
-        [
-            'text'        => 'Confirmar reservas',
-            'url'         => '/confirmar',
-            'icon'        => 'check',
             'label'       => '',
             'label_color' => 'success',
         ],

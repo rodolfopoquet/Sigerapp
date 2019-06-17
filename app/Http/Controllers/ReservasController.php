@@ -79,10 +79,12 @@ class ReservasController extends Controller
         
         $request->validate([
             'fkequipamentos'          => 'required',
-            'dtagendamento'           => 'required|date',
+            'dtagendamento'           => 'required|date|date_format:Y-m-d|after_or_equal:'.\Carbon\Carbon::now()->format('Y-m-d'),
             'turno'                   => 'required',
+            
         ],
     
+
         [
          /*
                 Este array serve para alertar as informações incorretas para 
@@ -111,6 +113,7 @@ class ReservasController extends Controller
             'user_id'                  => auth()->user()->id,
             'dtagendamento'            => $request->get('dtagendamento'),
             'turno'                    => $request->get('turno'),
+           
         ]);
         
           /* 
@@ -120,10 +123,17 @@ class ReservasController extends Controller
         */
         
         $equipamento = $this->repo->getById($request->get('fkequipamentos'));
+        
+       
+     
+        
+
         $equipamento->status = 'Indisponível';
         $equipamento->save();
         alert()->success('Reserva  realizada com sucesso');
         return redirect('/reservas');
+        dd($request->all());
+        
     }
 
     /**
