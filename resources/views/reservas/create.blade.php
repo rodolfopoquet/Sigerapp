@@ -43,7 +43,7 @@
                               	  'Tarde' =>'Tarde'  ,
                                   'Noite' =>'Noite',
                                 ],
-                               ['placeholder' => ''], ['class' => 'form-control'],);
+                               ['placeholder' => 'Selecione o turno'], ['class' => 'form-control'],);
          !!}
          </div>
           <div class="form-group">
@@ -64,8 +64,7 @@
                 'fkequipamentos',
                 $equipamentos->pluck('eqdescricao','id'),
                 old('fkequipamentos') ?? request()->get('fkequipamentos'),
-                [
-                'class' => 'form-control',
+                ['placeholder' =>'Selecione o equipamento'  ,   'class' => 'form-control',
                 'required' => 'required'
                 ]
             )

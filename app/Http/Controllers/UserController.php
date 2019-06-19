@@ -18,9 +18,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        
+        $user=User::all();
+        return view('user.index', compact('user'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -143,7 +143,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+
+     return redirect('/user');
+
     }
 
      //recuperação de sennha (logado)

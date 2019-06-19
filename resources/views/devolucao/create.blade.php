@@ -51,20 +51,21 @@
             )
         !!}
 
-
+        <div class="form-group">
+ 		<label for="horadev">Hora da devolução:</label>
+        	<input type="time"  id="horadev" class="form-control" name="horadev" />
+	  </div>
 
 
                </div>
 	      <label for="datadev">Data da devolucao:</label>
-        {!!
-				Form::date('datadev','',['class' => 'form-control']);
+       
+              {!!
+				Form::date('datadev', \Carbon\Carbon::now(),['class' => 'form-control']);
 
               !!}
           </div>
-	      <div class="form-group">
- 		<label for="horadev">Hora da devolução:</label>
-        	<input type="time"  id="horadev" class="form-control" name="horadev" />
-	  </div>
+       
 
      <div class="form-group">
  		<label for="obs">Observações:</label>

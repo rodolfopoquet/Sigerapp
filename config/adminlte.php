@@ -125,6 +125,13 @@ return [
             'label_color' => 'success',
         ],
         [
+            'text'        => 'Lista de funcionários',
+            'url'         => '/user',
+            'icon'        => 'pencil-square-o',
+            'label'       => '',
+            'label_color' => 'success',
+        ],
+        [
             'text'        => 'Devoluções de equipamentos',
             'url'         => '/devolucao',
             'icon'        => 'refresh',

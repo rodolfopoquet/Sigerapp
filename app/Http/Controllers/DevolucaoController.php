@@ -63,15 +63,17 @@ class DevolucaoController extends Controller
         $request->validate( [
             'fkreservas'           => 'required',         
             'obs'                  => 'required|max:190',
-            'datadev'              => 'required',
-            'horadev'		       => 'required',
+            'datadev'              => 'required|date|date_format:Y-m-d|after_or_equal:'.\Carbon\Carbon::now()->format('Y-m-d'),
+            
         ],
         
         [
            //Este array serve para exibir as informações incorretas para que o usuário possa corrigir
            
-            'horadev.required'=> 'O campo hora de devolução deve ser preenchido obrigatóriamente',
+           
             'obs.required'=> 'O campo observações deve ser preenchido obrigatóriamente',
+            'datadev.after_or_equal' =>'Data inválida',
+            'fkreservas.required'=> 'Selecione o equipamento a ser devolvido',
             
 
         ]

@@ -96,6 +96,7 @@ class ReservasController extends Controller
             'fkequipamentos.required'=>'Selecione um equipamento para reservar o equipamento',
             'dtagendamento.required'=>'Selecione uma data para reservas o equipamento',
             'turno.required'=>'Selecione o turno desejado para reserva',
+            'dtagendamento.after_or_equal' =>'Data inválida'
         ]
        
     
