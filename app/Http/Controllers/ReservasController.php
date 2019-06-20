@@ -129,7 +129,7 @@ class ReservasController extends Controller
      
         
 
-        $equipamento->status = 'Indisponível';
+        $equipamento->status = 'Em uso';
         $equipamento->save();
         alert()->success('Reserva  realizada com sucesso');
         return redirect('/reservas');

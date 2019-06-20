@@ -42,7 +42,7 @@ class Equipamentos extends Model
      */
     public function scopeDisponivel($query, $status=true)
     {
-        return $query->where('status', $status ? 'Disponível' : 'Indisponível');
+        return $query->where('status', $status ? 'Disponível' : 'Em uso');
     }
 
     /**
