@@ -13,5 +13,6 @@ interface EquipamentosRepositoryInterface
     public function  getWithStatus($id);
     public function  getStatus();
     public function  getIdentifyEquipamentos();
+   
     
 }

@@ -100,7 +100,8 @@ class DevolucaoController extends Controller
          // $devolucao->save();
            alert()->success('Equipamento devolvido com sucesso');
            return redirect('/devolucao');
-       
+          
+          
     }
 
     /**
@@ -145,7 +146,8 @@ class DevolucaoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reservas= $this->repore->getById($devolucao->reservas);
+        $reservas=$this->repore->delete($reservas);
     }
 
     public function generatePDF()
