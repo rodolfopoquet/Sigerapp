@@ -2427,6 +2427,7 @@ return array(
     'PhpParser\\Lexer\\Emulative' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Lexer/Emulative.php',
     'PhpParser\\Lexer\\TokenEmulator\\CoaleseEqualTokenEmulator' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/CoaleseEqualTokenEmulator.php',
     'PhpParser\\Lexer\\TokenEmulator\\FnTokenEmulator' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/FnTokenEmulator.php',
+    'PhpParser\\Lexer\\TokenEmulator\\NumericLiteralSeparatorEmulator' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/NumericLiteralSeparatorEmulator.php',
     'PhpParser\\Lexer\\TokenEmulator\\TokenEmulatorInterface' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/TokenEmulatorInterface.php',
     'PhpParser\\NameContext' => $vendorDir . '/nikic/php-parser/lib/PhpParser/NameContext.php',
     'PhpParser\\Node' => $vendorDir . '/nikic/php-parser/lib/PhpParser/Node.php',
