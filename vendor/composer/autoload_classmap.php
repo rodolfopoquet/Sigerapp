@@ -770,7 +770,6 @@ return array(
     'FontLib\\WOFF\\File' => $vendorDir . '/phenx/php-font-lib/src/FontLib/WOFF/File.php',
     'FontLib\\WOFF\\Header' => $vendorDir . '/phenx/php-font-lib/src/FontLib/WOFF/Header.php',
     'FontLib\\WOFF\\TableDirectoryEntry' => $vendorDir . '/phenx/php-font-lib/src/FontLib/WOFF/TableDirectoryEntry.php',
-    'FuncoesTableSeeder' => $baseDir . '/database/seeds/FuncoesTableSeeder.php',
     'HTML5_Data' => $vendorDir . '/dompdf/dompdf/lib/html5lib/Data.php',
     'HTML5_InputStream' => $vendorDir . '/dompdf/dompdf/lib/html5lib/InputStream.php',
     'HTML5_Parser' => $vendorDir . '/dompdf/dompdf/lib/html5lib/Parser.php',

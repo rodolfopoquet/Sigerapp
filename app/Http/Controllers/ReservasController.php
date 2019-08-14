@@ -113,14 +113,8 @@ class ReservasController extends Controller
        
        
      $reservado = $this->repore->horarioReservado($request);
-       if($reservado){
-       alert()->error('Reserva ocupada');
-
-            return redirect('/reservas/create')->setStatusCode(Response::HTTP_ACCEPTED);
-        
-         
-        }
-        else{
+       
+      
 
         $reservas = $this->repore->create([
             'fkequipamentos'           => $request->get('fkequipamentos'),
@@ -148,7 +142,7 @@ class ReservasController extends Controller
         return redirect('/reservas');
         dd($request->all());
        
-     }
+     
     }
 
     /**
