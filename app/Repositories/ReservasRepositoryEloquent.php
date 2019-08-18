@@ -53,23 +53,9 @@ class ReservasRepositoryEloquent implements ReservasRepositoryInterface
      }
 
      
-public function horarioReservado($request){
-  $reservado = false;
-$reserva_inicial=Reservas::where('dtagendamento',$request->get('dtagendamento'))
-->where('horario',$request->get('horario'))
-->where('eqdescricao',$request->get('eqdescricao'))->count();
-
-
-if($reserva_inicial > 0){
-          $reservado = true;
-      }
-
-      return $reservado;
-  }
-}
     
 
         
    
-
+}
 

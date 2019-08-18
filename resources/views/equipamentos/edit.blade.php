@@ -35,10 +35,11 @@
           <input type="text" class="form-control" name="eqdescricao" value="{{$equipamentos->eqdescricao}}" />
         </div>
         <div class="form-group">
-         <input type="hidden" class="form-control" name="etiqueta" value="{{ $equipamentos->etiqueta}}"/>
+          <label for="etiqueta">Etiqueta</label>
+          <input type="text" class="form-control" name="etiqueta" value="{{ $equipamentos->etiqueta}}"/>
         </div>
         <div class="form-group">
-          <label for= "marca">Marca do equipamento:</label>
+          <label for="etiqueta">Marca do equipamento:</label>
           <input type="text" class="form-control" name="marca" value="{{ $equipamentos->marca}}"/>
         </div>
         <div class="form-group">

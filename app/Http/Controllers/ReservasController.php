@@ -7,7 +7,6 @@ use App\Models\Reservas;
 use App\Models\Equipamentos;
 use App\Repositories\Contracts\EquipamentosRepositoryInterface;
 use App\Repositories\Contracts\ReservasRepositoryInterface;
-use App\Repositories\DB;
 use PDF;
 
 
@@ -81,7 +80,7 @@ class ReservasController extends Controller
         $request->validate([
             'fkequipamentos'          => 'required',
             'dtagendamento'           => 'required|date|date_format:Y-m-d|after_or_equal:'.\Carbon\Carbon::now()->format('Y-m-d'),
-            'horario'                   => 'required',
+            'turno'                   => 'required',
             
         ],
     
@@ -96,7 +95,7 @@ class ReservasController extends Controller
 
             'fkequipamentos.required'=>'Selecione um equipamento para reservar o equipamento',
             'dtagendamento.required'=>'Selecione uma data para reservas o equipamento',
-            'horario.required'=>'Selecione o turno desejado para reserva',
+            'turno.required'=>'Selecione o turno desejado para reserva',
             'dtagendamento.after_or_equal' =>'Data inválida'
         ]
        
@@ -110,17 +109,11 @@ class ReservasController extends Controller
                e usar o metodo create que irá preparar as informações para 
                serem guardadas 
         */
-       
-       
-     $reservado = $this->repore->horarioReservado($request);
-       
-      
-
         $reservas = $this->repore->create([
             'fkequipamentos'           => $request->get('fkequipamentos'),
             'user_id'                  => auth()->user()->id,
             'dtagendamento'            => $request->get('dtagendamento'),
-            'horario'                  => $request->get('horario'),
+            'turno'                    => $request->get('turno'),
            
         ]);
         
@@ -136,13 +129,12 @@ class ReservasController extends Controller
      
         
 
-        //$equipamento->status = 'Em uso';
-       // $equipamento->save();
+        $equipamento->status = 'Indisponível';
+        $equipamento->save();
         alert()->success('Reserva  realizada com sucesso');
         return redirect('/reservas');
         dd($request->all());
-       
-     
+        
     }
 
     /**
@@ -214,6 +206,7 @@ class ReservasController extends Controller
         return $pdf->download('reservas.pdf');
 
     }
-  
+
+
 
 }

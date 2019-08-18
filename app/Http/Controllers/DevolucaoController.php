@@ -60,13 +60,10 @@ class DevolucaoController extends Controller
     {
       
         //Este método serve para guardar o registro de devolução, onde é passado por um array de validação para certificar que as informações apresentadas estão de acordo com as regras impostas no sistema
-        $current_time=\Carbon\Carbon::now()->format('Y-m-d');
-      
         $request->validate( [
             'fkreservas'           => 'required',         
             'obs'                  => 'required|max:190',
-            'datadev'              => 'required|date|date_format:Y-m-d|before:$current_time|after_or_equal:'.\Carbon\Carbon::now()->format('Y-m-d'),
-            'horadev'              =>'required',
+            'datadev'              => 'required|date|date_format:Y-m-d|after_or_equal:'.\Carbon\Carbon::now()->format('Y-m-d'),
             
         ],
         
@@ -75,10 +72,9 @@ class DevolucaoController extends Controller
            
            
             'obs.required'=> 'O campo observações deve ser preenchido obrigatóriamente',
-            'datadev.after_or_equal' =>'Data inválida, não é possivel inserir uma data inferior a hoje',
-            'datadev.before' =>'Data inválida, não é possivel inserir uma data superior a hoje',
+            'datadev.after_or_equal' =>'Data inválida',
             'fkreservas.required'=> 'Selecione o equipamento a ser devolvido',
-            'horadev.required' =>'Insira a hora da devolução para efetuar a devolução corretamente'
+            
 
         ]
       
@@ -100,8 +96,7 @@ class DevolucaoController extends Controller
          // $devolucao->save();
            alert()->success('Equipamento devolvido com sucesso');
            return redirect('/devolucao');
-          
-          
+       
     }
 
     /**
@@ -146,8 +141,7 @@ class DevolucaoController extends Controller
      */
     public function destroy($id)
     {
-        $reservas= $this->repore->getById($devolucao->reservas);
-        $reservas=$this->repore->delete($reservas);
+        //
     }
 
     public function generatePDF()

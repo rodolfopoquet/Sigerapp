@@ -64,7 +64,7 @@ class EquipamentosController extends Controller
              'modelo'               => 'required|:max:20',
              'codidentificacao'     => 'required|unique:equipamentos|max:30',
              'dt_aquisicao'         => 'required|date|date_format:Y-m-d|before_or_equal:'.\Carbon\Carbon::now()->format('Y-m-d'),
-             'etiqueta'             => 'required|numeric|unique:equipamentos',
+             'etiqueta'             => 'required|numeric',
             
         ],
         
@@ -86,8 +86,8 @@ class EquipamentosController extends Controller
             'eqdescricao.unique'=>'Não é permitido cadastrar nomes de equipamentos iguais',
             'modelo.max'=>'O modelo do equipamento deve ter máximo 20 dígitos',
             'etiqueta.required'=> "Insira o número de equiqueta para cadastrar o equipamento",
-            'etiqueta.unique'=>'Esta etiqueta já está registradda',
-            'dt_aquisicao.before_or_equal'=>  'Data inválida, só é possivel cadastrar com datas inferiores ou igual a hoje',
+            'etiqueta.numeric'=>'Somente é permitida a inserção de números inteiros no campo etiqueta',
+            'dt_aquisicao.before_or_equal'=>  'Data inválida, só é possivel cadastrar com datas inferiores a hoje',
             ]
     
          
@@ -185,8 +185,8 @@ class EquipamentosController extends Controller
             'modelo'                => 'required|max:30',
             'status'                => 'required',
             'codidentificacao'      => 'required|max:30',
-            'dt_aquisicao'         => 'required|date|date_format:Y-m-d|before_or_equal:'.\Carbon\Carbon::now()->format('Y-m-d'),
-            'etiqueta'             => 'required|numeric',
+            'dt_aquisicao'          => 'required|date',
+           
             
                  
         ],
@@ -203,10 +203,6 @@ class EquipamentosController extends Controller
             'codidentificacao.unique'=>'O campo número de série é único',
             'eqdescricao.max'=>'É permitido no máximo 30 digitos',
             'modelo.max'=>'É permitido no máximo 30 dígitos',
-            'etiqueta.required'=> "Insira o número de equiqueta para cadastrar o equipamento",
-            'etiqueta.unique'=>'Esta etiqueta já está registradda',
-            'dt_aquisicao.before_or_equal'=>  'Data inválida, só é possivel cadastrar com datas inferiores ou igual a hoje',
-            
                    
         ]
         

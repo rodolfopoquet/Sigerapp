@@ -36,9 +36,9 @@
          
          
           <div class="form-group">
-         <label for="horario">Turno:</label> 
+         <label for="turno">Turno:</label> 
          {!!
-                  Form::select('horario',[
+                  Form::select('turno',[
                                   'Manhã' =>'Manhã',
                               	  'Tarde' =>'Tarde'  ,
                                   'Noite' =>'Noite',

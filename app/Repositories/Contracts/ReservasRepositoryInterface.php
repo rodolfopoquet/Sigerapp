@@ -10,6 +10,6 @@ interface ReservasRepositoryInterface
     public function  create(array $atributes);
     public function  delete($id);
     public function  getTodos();
-    public function horarioReservado(Request $request);
+    
     
 }
